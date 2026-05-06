@@ -1,0 +1,99 @@
+@import '@fontsource-variable/geist/index.css';
+@import '@fontsource-variable/geist-mono/index.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light — off-white warm, near-black ink, copper accent, graphite secondary */
+    --background: 250 249 246;
+    --foreground: 18 18 20;
+    --muted: 240 238 233;
+    --muted-foreground: 96 92 86;
+    --surface: 255 254 251;
+    --surface-elevated: 255 255 255;
+    --border: 224 220 212;
+    --border-strong: 196 190 180;
+    --accent: 180 83 9;             /* amber-700 / copper */
+    --accent-foreground: 255 251 235;
+    --secondary: 71 85 105;         /* slate-600 graphite */
+  }
+
+  .dark {
+    /* Dark — soft black, off-white, warm amber accent, deeper graphite */
+    --background: 10 10 12;
+    --foreground: 245 243 238;
+    --muted: 24 24 27;
+    --muted-foreground: 156 152 144;
+    --surface: 18 18 21;
+    --surface-elevated: 24 24 28;
+    --border: 39 39 44;
+    --border-strong: 63 63 70;
+    --accent: 245 158 11;           /* amber-500 */
+    --accent-foreground: 23 23 23;
+    --secondary: 148 163 184;       /* slate-400 */
+  }
+
+  * {
+    border-color: rgb(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+  }
+
+  ::selection {
+    background-color: rgb(var(--accent) / 0.25);
+    color: rgb(var(--foreground));
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-background;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-edge {
+    @apply mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-12;
+  }
+
+  .label-mono {
+    @apply font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Hairline grid background for hero/visual blocks */
+  .grid-hairlines {
+    background-image:
+      linear-gradient(to right, rgb(var(--border) / 0.7) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(var(--border) / 0.7) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .noise {
+    background-image: radial-gradient(rgb(var(--foreground) / 0.04) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+}
