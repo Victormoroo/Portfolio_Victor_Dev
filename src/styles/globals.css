@@ -7,33 +7,33 @@
 
 @layer base {
   :root {
-    /* Light — off-white warm, near-black ink, copper accent, graphite secondary */
-    --background: 250 249 246;
-    --foreground: 18 18 20;
-    --muted: 240 238 233;
-    --muted-foreground: 96 92 86;
-    --surface: 255 254 251;
-    --surface-elevated: 255 255 255;
-    --border: 224 220 212;
-    --border-strong: 196 190 180;
-    --accent: 180 83 9;             /* amber-700 / copper */
-    --accent-foreground: 255 251 235;
-    --secondary: 71 85 105;         /* slate-600 graphite */
+    /* Light — cool platinum / blueprint canvas, deep cyan accent */
+    --background: 233 237 241;
+    --foreground: 12 17 23;
+    --muted: 222 227 232;
+    --muted-foreground: 86 98 112;
+    --surface: 243 245 248;
+    --surface-elevated: 251 252 253;
+    --border: 205 213 220;
+    --border-strong: 163 174 185;
+    --accent: 14 116 144;            /* deep cyan / petrol electric */
+    --accent-foreground: 251 252 253;
+    --secondary: 74 85 98;
   }
 
   .dark {
-    /* Dark — soft black, off-white, warm amber accent, deeper graphite */
-    --background: 10 10 12;
-    --foreground: 245 243 238;
-    --muted: 24 24 27;
-    --muted-foreground: 156 152 144;
-    --surface: 18 18 21;
-    --surface-elevated: 24 24 28;
-    --border: 39 39 44;
-    --border-strong: 63 63 70;
-    --accent: 245 158 11;           /* amber-500 */
-    --accent-foreground: 23 23 23;
-    --secondary: 148 163 184;       /* slate-400 */
+    /* Dark — deep cool slate, off-white ink, neon cyan accent */
+    --background: 10 14 18;
+    --foreground: 231 238 244;
+    --muted: 22 29 36;
+    --muted-foreground: 138 150 164;
+    --surface: 16 21 27;
+    --surface-elevated: 22 29 36;
+    --border: 29 38 47;
+    --border-strong: 42 55 68;
+    --accent: 34 211 238;            /* cyan-400 — neon petrol */
+    --accent-foreground: 10 14 18;
+    --secondary: 125 140 155;
   }
 
   * {

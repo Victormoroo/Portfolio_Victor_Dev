@@ -60,7 +60,7 @@ export function Hero() {
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ delay: 0.7, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute -bottom-1 left-0 h-1 w-full origin-left bg-accent"
+                    className="absolute -bottom-1 left-0 h-1 w-full origin-left bg-accent shadow-[0_0_24px_rgb(var(--accent)/0.55)]"
                   />
                 </span>
               </Reveal>
