@@ -28,8 +28,8 @@ export function ProjectRow({ project, index }: Props) {
       >
         <Reveal>
           <div className="flex items-center gap-3">
-            <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
-              {String(index + 1).padStart(2, '0')}
+            <span aria-hidden className="text-sm leading-none text-accent">
+              ◆
             </span>
             <span aria-hidden className="h-px w-8 bg-border-strong" />
             <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
