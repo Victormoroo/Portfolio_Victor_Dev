@@ -148,10 +148,61 @@ function CodeVisual() {
       <div className="relative overflow-hidden rounded-2xl border border-border bg-surface shadow-[0_30px_60px_-30px_rgb(var(--foreground)/0.18)]">
         {/* window chrome */}
         <div className="flex items-center justify-between border-b border-border bg-muted/40 px-4 py-3">
-          <div className="flex gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
-            <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
-            <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
+          <div className="flex items-center gap-1.5">
+            <button
+              type="button"
+              aria-label="Close"
+              className="group/close grid h-2.5 w-2.5 place-items-center rounded-full bg-foreground/15 p-0 leading-none transition-colors hover:bg-[#ff5f57]"
+            >
+              <svg
+                width="8"
+                height="8"
+                viewBox="0 0 12 12"
+                fill="none"
+                stroke="#4d0000"
+                strokeWidth="2"
+                strokeLinecap="round"
+                className="block opacity-0 transition-opacity duration-150 group-hover/close:opacity-100"
+                aria-hidden
+              >
+                <path d="M3.5 3.5 L8.5 8.5 M8.5 3.5 L3.5 8.5" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              aria-label="Minimize"
+              className="group/min grid h-2.5 w-2.5 place-items-center rounded-full bg-foreground/15 p-0 leading-none transition-colors hover:bg-[#febc2e]"
+            >
+              <svg
+                width="8"
+                height="8"
+                viewBox="0 0 12 12"
+                fill="none"
+                stroke="#5a3300"
+                strokeWidth="2"
+                strokeLinecap="round"
+                className="block opacity-0 transition-opacity duration-150 group-hover/min:opacity-100"
+                aria-hidden
+              >
+                <path d="M3 6 L9 6" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              aria-label="Maximize"
+              className="group/max grid h-2.5 w-2.5 place-items-center rounded-full bg-foreground/15 p-0 leading-none transition-colors hover:bg-[#28c840]"
+            >
+              <svg
+                width="8"
+                height="8"
+                viewBox="0 0 12 12"
+                fill="#0c3b0c"
+                className="block opacity-0 transition-opacity duration-150 group-hover/max:opacity-100"
+                aria-hidden
+              >
+                <path d="M3 3 L7 3 L3 7 Z M9 5 L9 9 L5 9 Z" />
+              </svg>
+            </button>
           </div>
           <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
             developer.tsx
