@@ -273,6 +273,39 @@ export const content = {
         pt: 'Abre no seu cliente de e-mail padrão',
         en: 'Opens in your default email client',
       },
+      counter: {
+        pt: 'caracteres',
+        en: 'characters',
+      },
+      errors: {
+        name: {
+          required: { pt: 'Informe seu nome.', en: 'Please tell me your name.' },
+          tooShort: { pt: 'Mínimo de 2 caracteres.', en: 'At least 2 characters.' },
+          tooLong: { pt: 'Máximo de 80 caracteres.', en: 'Up to 80 characters.' },
+          invalid: {
+            pt: 'Use apenas letras, espaços, hífens ou apóstrofos.',
+            en: 'Only letters, spaces, hyphens or apostrophes.',
+          },
+        },
+        email: {
+          required: { pt: 'Informe seu e-mail.', en: 'Please share your email.' },
+          invalid: {
+            pt: 'E-mail em formato inválido.',
+            en: 'Please enter a valid email address.',
+          },
+        },
+        subject: {
+          tooLong: { pt: 'Máximo de 120 caracteres.', en: 'Up to 120 characters.' },
+        },
+        message: {
+          required: { pt: 'Escreva uma mensagem.', en: 'Please write a message.' },
+          tooShort: {
+            pt: 'A mensagem precisa ter pelo menos 10 caracteres.',
+            en: 'Message needs at least 10 characters.',
+          },
+          tooLong: { pt: 'Máximo de 2000 caracteres.', en: 'Up to 2000 characters.' },
+        },
+      },
     },
   },
 
