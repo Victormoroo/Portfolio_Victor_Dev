@@ -46,7 +46,7 @@ export function Hero() {
             <div className="flex items-center gap-3">
               <span aria-hidden className="h-px w-10 bg-border-strong" />
               <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                {t.role[lang]} · React · Node · Java
+                ReactJS · NodeJS · Spring · Docker · PostgreSQL
               </span>
             </div>
 
@@ -160,9 +160,9 @@ function CodeVisual() {
         </div>
 
         <div className="grid grid-cols-[40px_1fr] font-mono text-[12.5px] leading-[1.7] text-foreground/85">
-          <div className="select-none border-r border-border bg-muted/25 py-5 text-right text-[10px] text-muted-foreground/60">
-            {Array.from({ length: 13 }).map((_, i) => (
-              <div key={i} className="px-2">{String(i + 1).padStart(2, '0')}</div>
+          <div className="select-none border-r border-border bg-muted/25 py-5 text-right text-[10px] leading-[21.25px] text-muted-foreground/60">
+            {['01', '02', '03', '04', '05', '06', '07', '08', '09', '', '10', '11'].map((n, i) => (
+              <div key={i} className="px-2">{n || ' '}</div>
             ))}
           </div>
 
@@ -175,7 +175,8 @@ function CodeVisual() {
 {'    '}{tk('string', '"refined UI"')}{tk('plain', ',')}{'\n'}
 {'    '}{tk('string', '"product mindset"')}{'\n'}
 {'  '}{tk('plain', '],')}{'\n'}
-{'  '}{tk('prop', 'stack')}{tk('plain', ': ')}{tk('keyword', 'new')}{tk('plain', ' ')}{tk('fn', 'Set')}{tk('plain', '([')}{tk('string', '"React"')}{tk('plain', ', ')}{tk('string', '"Node"')}{tk('plain', ', ')}{tk('string', '"Java"')}{tk('plain', ']),')}{'\n'}
+{'  '}{tk('prop', 'stack')}{tk('plain', ': ')}{tk('keyword', 'new')}{tk('plain', ' ')}{tk('fn', 'Set')}{tk('plain', '([')}{tk('string', '"ReactJS"')}{tk('plain', ', ')}{tk('string', '"NodeJS"')}{tk('plain', ', ')}{tk('string', '"Spring"')}{tk('plain', ',')}{'\n'}
+{'    '}{tk('string', '"Docker"')}{tk('plain', ', ')}{tk('string', '"PostgreSQL"')}{tk('plain', ']),')}{'\n'}
 {'  '}{tk('prop', 'available')}{tk('plain', ': ')}{tk('boolean', 'true')}{tk('plain', ',')}{'\n'}
 {tk('plain', '} as ')}{tk('type', 'const')}{tk('plain', ';')}
           </pre>
