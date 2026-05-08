@@ -245,6 +245,35 @@ export const content = {
       linkedin: { pt: 'LinkedIn', en: 'LinkedIn' },
       github: { pt: 'GitHub', en: 'GitHub' },
     },
+    modal: {
+      title: { pt: 'Enviar mensagem', en: 'Send a message' },
+      intro: {
+        pt: 'Preencha os campos e seu cliente de e-mail abrirá com tudo pronto pra revisar e enviar.',
+        en: 'Fill in the fields and your email client will open with everything ready to review and send.',
+      },
+      fields: {
+        name: { pt: 'Nome', en: 'Name' },
+        email: { pt: 'Seu e-mail', en: 'Your email' },
+        subject: { pt: 'Assunto', en: 'Subject' },
+        message: { pt: 'Mensagem', en: 'Message' },
+      },
+      placeholders: {
+        name: { pt: 'Como você se chama', en: 'What should I call you' },
+        email: { pt: 'voce@exemplo.com', en: 'you@example.com' },
+        subject: { pt: 'Sobre o que quer falar (opcional)', en: 'What is this about (optional)' },
+        message: { pt: 'Conta um pouco do que você tem em mente.', en: 'Tell me a bit about what you have in mind.' },
+      },
+      defaultSubject: {
+        pt: 'Contato pelo portfólio',
+        en: 'Contact from the portfolio',
+      },
+      cancel: { pt: 'Cancelar', en: 'Cancel' },
+      send: { pt: 'Enviar', en: 'Send' },
+      hint: {
+        pt: 'Abre no seu cliente de e-mail padrão',
+        en: 'Opens in your default email client',
+      },
+    },
   },
 
   footer: {

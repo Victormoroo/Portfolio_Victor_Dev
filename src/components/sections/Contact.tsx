@@ -1,13 +1,16 @@
+import { useState } from 'react';
 import { ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
 import { Reveal } from '@/components/ui/Reveal';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { Button } from '@/components/ui/Button';
+import { ContactModal } from '@/components/ui/ContactModal';
 import { useLanguage } from '@/hooks/useLanguage';
 import { content, links } from '@/data/content';
 
 export function Contact() {
   const { lang } = useLanguage();
   const t = content.contact;
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <section id="contact" className="relative scroll-mt-24 py-28 sm:py-40">
@@ -38,7 +41,7 @@ export function Contact() {
 
         <Reveal delay={0.2} className="mt-10">
           <div className="flex flex-wrap items-center gap-2.5">
-            <Button as="a" href={`mailto:${links.email}`} size="lg">
+            <Button onClick={() => setModalOpen(true)} size="lg">
               <Mail size={15} />
               {t.cta.email[lang]}
               <ArrowUpRight size={14} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -54,6 +57,8 @@ export function Contact() {
           </div>
         </Reveal>
       </div>
+
+      <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }
