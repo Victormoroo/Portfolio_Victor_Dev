@@ -233,8 +233,8 @@ export const content = {
   contact: {
     label: { pt: 'Contato', en: 'Contact' },
     title: {
-      pt: 'Vamos construir algo bem feito.',
-      en: "Let's build something well-crafted.",
+      pt: 'Vamos construir algo juntos?',
+      en: "Let's build something together?",
     },
     sub: {
       pt: 'Aberto a oportunidades, projetos sob medida e conversas honestas sobre engenharia e produto.',
