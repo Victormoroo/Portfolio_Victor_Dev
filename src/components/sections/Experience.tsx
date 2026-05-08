@@ -26,7 +26,7 @@ export function Experience() {
           </Reveal>
         </div>
 
-        <ol className="relative mt-16 sm:mt-20">
+        <ol className="relative mt-16 flex flex-col gap-10 sm:mt-20">
           <span
             aria-hidden
             className="absolute bottom-0 left-[7px] top-2 w-px bg-gradient-to-b from-border-strong via-border to-transparent sm:left-[11px]"
@@ -34,7 +34,7 @@ export function Experience() {
 
           {items.map((item, i) => (
             <Reveal key={i} delay={i * 0.06}>
-              <li className="relative grid grid-cols-[28px_1fr] gap-5 pb-12 last:pb-0 sm:grid-cols-[40px_1fr] sm:gap-8">
+              <li className="relative grid grid-cols-[28px_1fr] gap-5 sm:grid-cols-[40px_1fr] sm:gap-8">
                 <div className="relative pt-[7px]">
                   <span
                     aria-hidden
@@ -44,7 +44,7 @@ export function Experience() {
                   </span>
                 </div>
 
-                <div className="rounded-2xl border border-border bg-surface p-5 transition-colors hover:border-border-strong hover:bg-surface-elevated sm:p-7">
+                <div className="rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-border-strong hover:bg-surface-elevated sm:p-8">
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
                       {String(i + 1).padStart(2, '0')}
