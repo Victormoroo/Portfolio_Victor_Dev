@@ -28,9 +28,9 @@ export function Process() {
                 <span className="font-mono text-3xl font-medium leading-none text-foreground/40 transition-colors duration-300 group-hover:text-accent sm:text-5xl">
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <div className="flex flex-col gap-1.5">
+                <div className="flex flex-col gap-1.5 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1.5">
                   <h3 className="text-lg font-semibold text-foreground sm:text-2xl">{item.title}</h3>
-                  <p className="max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  <p className="max-w-xl text-sm leading-relaxed text-muted-foreground/70 transition-colors duration-500 group-hover:text-foreground sm:text-base">
                     {item.body}
                   </p>
                 </div>
