@@ -3,7 +3,7 @@ import { content } from '@/data/content';
 import { projects } from '@/data/projects';
 import { Reveal } from '@/components/ui/Reveal';
 import { SectionLabel } from '@/components/ui/SectionLabel';
-import { ProjectCard } from '@/components/ui/ProjectCard';
+import { ProjectRow } from '@/components/ui/ProjectRow';
 
 export function Projects() {
   const { lang } = useLanguage();
@@ -23,19 +23,17 @@ export function Projects() {
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-5">
-            <p className="text-[15px] leading-relaxed text-muted-foreground text-balance">{t.sub[lang]}</p>
+            <p className="text-[15px] leading-relaxed text-muted-foreground text-balance">
+              {t.sub[lang]}
+            </p>
           </Reveal>
         </div>
 
-        <ul className="mt-16 grid grid-cols-1 gap-5 sm:mt-20 lg:grid-cols-2">
+        <div className="mt-20 flex flex-col gap-y-24 sm:mt-28 lg:gap-y-40">
           {projects.map((p, i) => (
-            <Reveal key={p.slug} delay={(i % 2) * 0.08}>
-              <li className="h-full">
-                <ProjectCard project={p} index={i} />
-              </li>
-            </Reveal>
+            <ProjectRow key={p.slug} project={p} index={i} />
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );
