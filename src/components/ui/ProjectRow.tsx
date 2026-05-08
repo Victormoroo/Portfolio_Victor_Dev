@@ -96,8 +96,18 @@ export function ProjectRow({ project, index }: Props) {
 
       <div className="flex flex-col gap-8 md:gap-10 lg:col-span-7">
         <Reveal>
-          <div className="aspect-[16/10] w-full overflow-hidden rounded-2xl border border-border">
-            <ProjectMockup kind={project.kind} />
+          <div className="group/mockup relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-border bg-surface transition-colors duration-500 hover:border-border-strong">
+            <div className="h-full w-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/mockup:scale-[1.04]">
+              <ProjectMockup kind={project.kind} />
+            </div>
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover/mockup:opacity-100"
+              style={{
+                background:
+                  'radial-gradient(80% 60% at 50% 0%, rgb(var(--accent) / 0.10), transparent 70%)',
+              }}
+            />
           </div>
         </Reveal>
 
