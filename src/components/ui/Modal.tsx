@@ -18,8 +18,17 @@ export function Modal({ open, onClose, title, description, children }: Props) {
   const reduce = useReducedMotion();
   const dialogRef = useRef<HTMLDivElement>(null);
   const previousFocus = useRef<HTMLElement | null>(null);
+  const onCloseRef = useRef(onClose);
   const titleId = useId();
   const descId = useId();
+
+  // Keep the latest onClose accessible without making it a dep of the
+  // open/close effect. Otherwise every parent re-render (e.g. typing
+  // in a controlled input) would cleanup + reinit the effect and steal
+  // focus back to the first field.
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
 
   useEffect(() => {
     if (!open) return;
@@ -29,7 +38,7 @@ export function Modal({ open, onClose, title, description, children }: Props) {
 
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        onClose();
+        onCloseRef.current();
         return;
       }
       if (e.key !== 'Tab' || !dialogRef.current) return;
@@ -63,7 +72,7 @@ export function Modal({ open, onClose, title, description, children }: Props) {
       window.removeEventListener('keydown', onKey);
       previousFocus.current?.focus();
     };
-  }, [open, onClose]);
+  }, [open]);
 
   if (typeof document === 'undefined') return null;
 
