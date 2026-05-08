@@ -7,18 +7,18 @@
 
 @layer base {
   :root {
-    /* Light — cool platinum / blueprint canvas, deep cyan accent */
-    --background: 233 237 241;
+    /* Light — cool blueprint canvas, vivid cyan accent */
+    --background: 226 231 237;
     --foreground: 12 17 23;
-    --muted: 222 227 232;
-    --muted-foreground: 86 98 112;
-    --surface: 243 245 248;
-    --surface-elevated: 251 252 253;
-    --border: 205 213 220;
-    --border-strong: 163 174 185;
-    --accent: 14 116 144;            /* deep cyan / petrol electric */
-    --accent-foreground: 251 252 253;
-    --secondary: 74 85 98;
+    --muted: 214 220 226;
+    --muted-foreground: 79 91 105;
+    --surface: 240 243 247;
+    --surface-elevated: 250 251 253;
+    --border: 198 207 215;
+    --border-strong: 156 168 180;
+    --accent: 8 145 178;             /* cyan-600 — vivid petrol */
+    --accent-foreground: 250 251 253;
+    --secondary: 70 81 95;
   }
 
   .dark {
