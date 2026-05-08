@@ -24,7 +24,7 @@ export function Process() {
         <ul className="mt-16 divide-y divide-border border-y border-border sm:mt-20">
           {items.map((item, i) => (
             <Reveal key={item.title} delay={i * 0.04}>
-              <li className="group grid grid-cols-[80px_1fr] gap-4 py-7 transition-colors hover:bg-background/40 sm:grid-cols-[120px_1fr_auto] sm:gap-10 sm:py-9">
+              <li className="group grid grid-cols-[80px_1fr] gap-4 py-7 transition-colors hover:bg-background/40 sm:grid-cols-[120px_1fr] sm:gap-10 sm:py-9">
                 <span className="font-mono text-3xl font-medium leading-none text-foreground/40 transition-colors duration-300 group-hover:text-accent sm:text-5xl">
                   {String(i + 1).padStart(2, '0')}
                 </span>
@@ -34,9 +34,6 @@ export function Process() {
                     {item.body}
                   </p>
                 </div>
-                <span aria-hidden className="hidden self-center text-2xl text-foreground/20 transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent sm:block">
-                  →
-                </span>
               </li>
             </Reveal>
           ))}
