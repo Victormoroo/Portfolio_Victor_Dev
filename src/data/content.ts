@@ -6,7 +6,7 @@
 export type Language = 'pt' | 'en';
 
 export const links = {
-  github: 'https://github.com/your-handle',     // TODO: replace
+  github: 'https://github.com/Victormoroo',
   linkedin: 'https://www.linkedin.com/in/victormoroo/',
   email: 'your.email@example.com',              // TODO: replace
   cv: '#',                                      // TODO: replace with /cv.pdf or external link
@@ -312,8 +312,8 @@ export const content = {
   footer: {
     role: { pt: 'Full Stack Developer', en: 'Full Stack Developer' },
     rights: {
-      pt: 'Construído com cuidado.',
-      en: 'Crafted with care.',
+      pt: 'Todos os direitos reservados.',
+      en: 'All rights reserved.',
     },
   },
 } as const;
