@@ -1,6 +1,8 @@
+import { Fragment, useEffect, useState } from 'react';
 import { ArrowDownRight, Download, Mail } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
+import { cn } from '@/lib/cn';
 import { useLanguage } from '@/hooks/useLanguage';
 import { content, links } from '@/data/content';
 
@@ -210,28 +212,7 @@ function CodeVisual() {
           <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent">●&nbsp;live</span>
         </div>
 
-        <div className="grid grid-cols-[40px_1fr] font-mono text-[12.5px] leading-[1.7] text-foreground/85">
-          <div className="select-none border-r border-border bg-muted/25 py-5 text-right text-[10px] leading-[21.25px] text-muted-foreground/60">
-            {['01', '02', '03', '04', '05', '06', '07', '08', '09', '', '10', '11'].map((n, i) => (
-              <div key={i} className="px-2">{n || ' '}</div>
-            ))}
-          </div>
-
-          <pre className="overflow-x-auto whitespace-pre py-5 pl-4 pr-5">
-{tk('keyword', 'export const ')}{tk('fn', 'developer')}{tk('plain', ' = {')}{'\n'}
-{'  '}{tk('prop', 'name')}{tk('plain', ': ')}{tk('string', '"Victor Moro"')}{tk('plain', ',')}{'\n'}
-{'  '}{tk('prop', 'role')}{tk('plain', ': ')}{tk('string', '"Full Stack Developer"')}{tk('plain', ',')}{'\n'}
-{'  '}{tk('prop', 'focus')}{tk('plain', ': [')}{'\n'}
-{'    '}{tk('string', '"clean code"')}{tk('plain', ',')}{'\n'}
-{'    '}{tk('string', '"refined UI"')}{tk('plain', ',')}{'\n'}
-{'    '}{tk('string', '"product mindset"')}{'\n'}
-{'  '}{tk('plain', '],')}{'\n'}
-{'  '}{tk('prop', 'stack')}{tk('plain', ': ')}{tk('keyword', 'new')}{tk('plain', ' ')}{tk('fn', 'Set')}{tk('plain', '([')}{tk('string', '"ReactJS"')}{tk('plain', ', ')}{tk('string', '"NodeJS"')}{tk('plain', ', ')}{tk('string', '"Spring"')}{tk('plain', ',')}{'\n'}
-{'    '}{tk('string', '"Docker"')}{tk('plain', ', ')}{tk('string', '"PostgreSQL"')}{tk('plain', ']),')}{'\n'}
-{'  '}{tk('prop', 'available')}{tk('plain', ': ')}{tk('boolean', 'true')}{tk('plain', ',')}{'\n'}
-{tk('plain', '} as ')}{tk('type', 'const')}{tk('plain', ';')}
-          </pre>
-        </div>
+        <TypedCode />
 
         {/* bottom status bar */}
         <div className="flex items-center justify-between border-t border-border bg-muted/30 px-4 py-2 font-mono text-[10px] text-muted-foreground">
@@ -252,7 +233,9 @@ function CodeVisual() {
   );
 }
 
-const palette: Record<string, string> = {
+type TokenKind = 'keyword' | 'fn' | 'prop' | 'string' | 'boolean' | 'type' | 'plain' | 'ws';
+
+const palette: Record<TokenKind, string> = {
   keyword: 'text-fuchsia-500/90 dark:text-fuchsia-300/90',
   fn:      'text-sky-600 dark:text-sky-300',
   prop:    'text-foreground',
@@ -260,8 +243,214 @@ const palette: Record<string, string> = {
   boolean: 'text-amber-600 dark:text-amber-300',
   type:    'text-violet-500 dark:text-violet-300',
   plain:   'text-foreground/70',
+  ws:      '',
 };
 
-function tk(kind: keyof typeof palette, text: string) {
-  return <span className={palette[kind]}>{text}</span>;
+type Token = { kind: TokenKind; text: string };
+type CodeLine = { gutter: string; tokens: Token[] };
+
+// Each entry is a visible row in the editor. The 10th row is the wrap continuation
+// of line 9, so its gutter label is empty (no number, no extra line counted).
+const codeLines: ReadonlyArray<CodeLine> = [
+  { gutter: '01', tokens: [
+    { kind: 'keyword', text: 'export const ' },
+    { kind: 'fn',      text: 'developer' },
+    { kind: 'plain',   text: ' = {' },
+  ]},
+  { gutter: '02', tokens: [
+    { kind: 'ws',      text: '  ' },
+    { kind: 'prop',    text: 'name' },
+    { kind: 'plain',   text: ': ' },
+    { kind: 'string',  text: '"Victor Moro"' },
+    { kind: 'plain',   text: ',' },
+  ]},
+  { gutter: '03', tokens: [
+    { kind: 'ws',      text: '  ' },
+    { kind: 'prop',    text: 'role' },
+    { kind: 'plain',   text: ': ' },
+    { kind: 'string',  text: '"Full Stack Developer"' },
+    { kind: 'plain',   text: ',' },
+  ]},
+  { gutter: '04', tokens: [
+    { kind: 'ws',      text: '  ' },
+    { kind: 'prop',    text: 'focus' },
+    { kind: 'plain',   text: ': [' },
+  ]},
+  { gutter: '05', tokens: [
+    { kind: 'ws',      text: '    ' },
+    { kind: 'string',  text: '"clean code"' },
+    { kind: 'plain',   text: ',' },
+  ]},
+  { gutter: '06', tokens: [
+    { kind: 'ws',      text: '    ' },
+    { kind: 'string',  text: '"refined UI"' },
+    { kind: 'plain',   text: ',' },
+  ]},
+  { gutter: '07', tokens: [
+    { kind: 'ws',      text: '    ' },
+    { kind: 'string',  text: '"product mindset"' },
+  ]},
+  { gutter: '08', tokens: [
+    { kind: 'ws',      text: '  ' },
+    { kind: 'plain',   text: '],' },
+  ]},
+  { gutter: '09', tokens: [
+    { kind: 'ws',      text: '  ' },
+    { kind: 'prop',    text: 'stack' },
+    { kind: 'plain',   text: ': ' },
+    { kind: 'keyword', text: 'new' },
+    { kind: 'plain',   text: ' ' },
+    { kind: 'fn',      text: 'Set' },
+    { kind: 'plain',   text: '([' },
+    { kind: 'string',  text: '"ReactJS"' },
+    { kind: 'plain',   text: ', ' },
+    { kind: 'string',  text: '"NodeJS"' },
+    { kind: 'plain',   text: ', ' },
+    { kind: 'string',  text: '"Spring"' },
+    { kind: 'plain',   text: ',' },
+  ]},
+  { gutter: '', tokens: [
+    { kind: 'ws',      text: '    ' },
+    { kind: 'string',  text: '"Docker"' },
+    { kind: 'plain',   text: ', ' },
+    { kind: 'string',  text: '"PostgreSQL"' },
+    { kind: 'plain',   text: ']),' },
+  ]},
+  { gutter: '10', tokens: [
+    { kind: 'ws',      text: '  ' },
+    { kind: 'prop',    text: 'available' },
+    { kind: 'plain',   text: ': ' },
+    { kind: 'boolean', text: 'true' },
+    { kind: 'plain',   text: ',' },
+  ]},
+  { gutter: '11', tokens: [
+    { kind: 'plain',   text: '} as ' },
+    { kind: 'type',    text: 'const' },
+    { kind: 'plain',   text: ';' },
+  ]},
+  // Empty trailing line. Acts as the "home" for the blinking caret after typing finishes.
+  { gutter: '12', tokens: [] },
+];
+
+// Char counts per line (excluding the newline that separates rows during typing).
+const lineLengths = codeLines.map((l) => l.tokens.reduce((n, t) => n + t.text.length, 0));
+// Cumulative char count BEFORE each line (treating one virtual newline between rows).
+const lineStartOffsets: number[] = [];
+{
+  let offset = 0;
+  for (let i = 0; i < codeLines.length; i++) {
+    lineStartOffsets.push(offset);
+    offset += lineLengths[i] + (i < codeLines.length - 1 ? 1 : 0); // +1 for the newline
+  }
+}
+const totalChars = lineStartOffsets[codeLines.length - 1] + lineLengths[codeLines.length - 1];
+
+// Waits for the hero's intro animations to finish before starting, then
+// types ~50 chars/s. Respects prefers-reduced-motion (renders fully).
+const TYPING_START_DELAY_MS = 1400;
+const TYPING_MS_PER_CHAR = 20;
+
+function TypedCode() {
+  const reducedMotion = useReducedMotion();
+  const [revealed, setRevealed] = useState(reducedMotion ? totalChars : 0);
+  const done = revealed >= totalChars;
+
+  useEffect(() => {
+    if (reducedMotion) {
+      setRevealed(totalChars);
+      return;
+    }
+    let raf = 0;
+    let startTime = 0;
+
+    const tick = (now: number) => {
+      if (!startTime) startTime = now;
+      const elapsed = now - startTime - TYPING_START_DELAY_MS;
+      if (elapsed >= 0) {
+        const chars = Math.min(totalChars, Math.floor(elapsed / TYPING_MS_PER_CHAR));
+        setRevealed((prev) => (prev === chars ? prev : chars));
+        if (chars >= totalChars) return;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [reducedMotion]);
+
+  return (
+    <div className="grid grid-cols-[40px_1fr] bg-surface font-mono text-[12.5px] leading-[21.25px] text-foreground/85">
+      <div className="h-5 border-r border-border bg-muted/25" />
+      <div className="h-5" />
+      {codeLines.map((line, i) => {
+        const lineStart = lineStartOffsets[i];
+        const lineEnd = lineStart + lineLengths[i];
+        const isCaretHome = i === codeLines.length - 1;
+        const numberVisible = isCaretHome ? done : revealed > lineStart;
+        const isCaretLine = done
+          ? isCaretHome
+          : revealed >= lineStart && revealed <= lineEnd && !isCaretHome;
+        const localRevealed = Math.max(0, Math.min(lineLengths[i], revealed - lineStart));
+        return (
+          <Fragment key={i}>
+            <div
+              className={cn(
+                'h-[21.25px] select-none border-r border-border bg-muted/25 px-2 text-right text-[10px] leading-[21.25px] text-muted-foreground/60',
+                i === 0 && 'pt-0',
+              )}
+            >
+              <span
+                className={cn(
+                  'transition-opacity duration-200',
+                  numberVisible && line.gutter ? 'opacity-100' : 'opacity-0',
+                )}
+              >
+                {line.gutter || ' '}
+              </span>
+            </div>
+            <pre
+              className={cn(
+                'h-[21.25px] overflow-x-auto whitespace-pre pl-4 pr-5',
+                i === 0 && 'pt-0',
+              )}
+            >
+              {renderLineTokens(line.tokens, localRevealed)}
+              {isCaretLine && <Caret />}
+            </pre>
+          </Fragment>
+        );
+      })}
+      <div className="h-5 border-r border-border bg-muted/25" />
+      <div className="h-5" />
+    </div>
+  );
+}
+
+function renderLineTokens(tokens: Token[], localRevealed: number) {
+  const out: React.ReactNode[] = [];
+  let consumed = 0;
+  for (let i = 0; i < tokens.length; i++) {
+    if (consumed >= localRevealed) break;
+    const tok = tokens[i];
+    const remaining = localRevealed - consumed;
+    const shown = remaining >= tok.text.length ? tok.text : tok.text.slice(0, remaining);
+    out.push(
+      <span key={i} className={palette[tok.kind]}>
+        {shown}
+      </span>,
+    );
+    consumed += tok.text.length;
+  }
+  return out;
+}
+
+function Caret() {
+  return (
+    <motion.span
+      aria-hidden
+      initial={{ opacity: 1 }}
+      animate={{ opacity: [1, 1, 0, 0] }}
+      transition={{ duration: 1, repeat: Infinity, ease: 'linear', times: [0, 0.5, 0.5, 1] }}
+      className="ml-[1px] inline-block h-[1.05em] w-[2px] -translate-y-[1px] bg-accent align-middle"
+    />
+  );
 }
