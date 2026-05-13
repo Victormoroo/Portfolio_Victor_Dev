@@ -450,7 +450,7 @@ function Caret() {
       initial={{ opacity: 1 }}
       animate={{ opacity: [1, 1, 0, 0] }}
       transition={{ duration: 1, repeat: Infinity, ease: 'linear', times: [0, 0.5, 0.5, 1] }}
-      className="ml-[1px] inline-block h-[1.05em] w-[2px] -translate-y-[1px] bg-accent align-middle"
+      className="ml-[1px] inline-block h-[1.05em] w-[2px] -translate-y-[1px] bg-muted-foreground align-middle"
     />
   );
 }
