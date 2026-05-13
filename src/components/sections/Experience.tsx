@@ -9,7 +9,7 @@ export function Experience() {
   const items = t.items[lang];
 
   return (
-    <section id="experience" className="relative scroll-mt-24 py-24 sm:py-32">
+    <section id="experience" className="relative scroll-mt-24 border-y border-border bg-muted/30 py-24 sm:py-32">
       <div className="container-edge">
         <Reveal>
           <SectionLabel number="04" label={t.label[lang]} />
