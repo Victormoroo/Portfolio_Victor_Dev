@@ -6,7 +6,6 @@ import { About } from '@/components/sections/About';
 import { Stack } from '@/components/sections/Stack';
 import { Projects } from '@/components/sections/Projects';
 import { Experience } from '@/components/sections/Experience';
-import { Process } from '@/components/sections/Process';
 import { Contact } from '@/components/sections/Contact';
 import { Loading } from '@/components/ui/Loading';
 
@@ -29,7 +28,6 @@ export default function App() {
         <Stack />
         <Projects />
         <Experience />
-        <Process />
         <Contact />
       </main>
       <Footer />

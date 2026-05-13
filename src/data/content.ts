@@ -206,30 +206,6 @@ export const content = {
     },
   },
 
-  process: {
-    label: { pt: 'Como trabalho', en: 'How I work' },
-    title: {
-      pt: 'Princípios que guiam cada entrega.',
-      en: 'Principles guiding every delivery.',
-    },
-    items: {
-      pt: [
-        { title: 'Código limpo e componentizado', body: 'Arquitetura previsível, fácil de ler e fácil de evoluir.' },
-        { title: 'Interfaces responsivas e acessíveis', body: 'Funciona bem do mobile ao desktop, com foco em acessibilidade.' },
-        { title: 'APIs bem estruturadas', body: 'Contratos claros, validação na fronteira e erros previsíveis.' },
-        { title: 'Performance e boas práticas', body: 'Bundle enxuto, métricas reais e zero shift de layout.' },
-        { title: 'Atenção à experiência do usuário', body: 'Microinterações, estados vazios e feedback contextual.' },
-      ],
-      en: [
-        { title: 'Clean, componentized code', body: 'Predictable architecture, easy to read and easy to evolve.' },
-        { title: 'Responsive, accessible interfaces', body: 'Works well from mobile to desktop, with accessibility in focus.' },
-        { title: 'Well-structured APIs', body: 'Clear contracts, boundary validation and predictable errors.' },
-        { title: 'Performance and best practices', body: 'Lean bundle, real metrics and zero layout shift.' },
-        { title: 'Attention to user experience', body: 'Microinteractions, empty states and contextual feedback.' },
-      ],
-    },
-  },
-
   contact: {
     label: { pt: 'Contato', en: 'Contact' },
     title: {
