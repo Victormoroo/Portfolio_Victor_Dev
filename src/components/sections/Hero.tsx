@@ -227,7 +227,7 @@ function CodeVisual() {
       {/* floating chip */}
       <div className="absolute -right-3 -top-3 hidden rotate-3 rounded-full border border-border bg-background px-3 py-1.5 text-xs shadow-md sm:block">
         <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">v1.0 · </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">shipping</span>
+        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">stable</span>
       </div>
     </motion.div>
   );
