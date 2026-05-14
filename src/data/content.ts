@@ -10,6 +10,7 @@ export const links = {
   linkedin: 'https://www.linkedin.com/in/victormoroo/',
   email: 'your.email@example.com',              // TODO: replace
   cv: '#',                                      // TODO: replace with /cv.pdf or external link
+  contactForm: 'https://formspree.io/f/mojrzovl',
 };
 
 export const nav = {
@@ -224,8 +225,8 @@ export const content = {
     modal: {
       title: { pt: 'Enviar mensagem', en: 'Send a message' },
       intro: {
-        pt: 'Preencha os campos e seu cliente de e-mail abrirá com tudo pronto pra revisar e enviar.',
-        en: 'Fill in the fields and your email client will open with everything ready to review and send.',
+        pt: 'Preencha os campos abaixo — a mensagem cai direto no meu e-mail.',
+        en: 'Fill in the fields below — your message lands straight in my inbox.',
       },
       fields: {
         name: { pt: 'Nome', en: 'Name' },
@@ -245,9 +246,22 @@ export const content = {
       },
       cancel: { pt: 'Cancelar', en: 'Cancel' },
       send: { pt: 'Enviar', en: 'Send' },
+      sending: { pt: 'Enviando…', en: 'Sending…' },
+      done: { pt: 'Fechar', en: 'Close' },
       hint: {
-        pt: 'Abre no seu cliente de e-mail padrão',
-        en: 'Opens in your default email client',
+        pt: 'Costumo responder em até 48 horas.',
+        en: 'I usually reply within 48 hours.',
+      },
+      success: {
+        title: { pt: 'Mensagem enviada', en: 'Message sent' },
+        body: {
+          pt: 'Obrigado por entrar em contato. Te respondo em breve.',
+          en: 'Thanks for reaching out — I will get back to you soon.',
+        },
+      },
+      sendError: {
+        pt: 'Não consegui enviar agora. Tente novamente em alguns instantes.',
+        en: 'Could not send right now. Please try again in a moment.',
       },
       counter: {
         pt: 'caracteres',

@@ -1,9 +1,12 @@
 import { useCallback, useEffect, useId, useState, type FormEvent } from 'react';
-import { Send } from 'lucide-react';
+import { Loader2, Send } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Modal } from './Modal';
 import { useLanguage } from '@/hooks/useLanguage';
 import { content, links } from '@/data/content';
 import { cn } from '@/lib/cn';
+
+type Status = 'idle' | 'sending' | 'success' | 'error';
 
 const LIMITS = {
   NAME_MIN: 2,
@@ -41,6 +44,7 @@ export function ContactModal({ open, onClose }: Props) {
     message: false,
   });
   const [errors, setErrors] = useState<Errors>({});
+  const [status, setStatus] = useState<Status>('idle');
 
   const runValidation = useCallback((): Errors => {
     const errs: Errors = {};
@@ -78,6 +82,7 @@ export function ContactModal({ open, onClose }: Props) {
     setMessage('');
     setTouched({ name: false, email: false, subject: false, message: false });
     setErrors({});
+    setStatus('idle');
   };
 
   const handleClose = () => {
@@ -89,27 +94,68 @@ export function ContactModal({ open, onClose }: Props) {
     setTouched((prev) => ({ ...prev, [field]: true }));
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (status === 'sending') return;
     const errs = runValidation();
     setErrors(errs);
     setTouched({ name: true, email: true, subject: true, message: true });
     if (Object.keys(errs).length > 0) return;
 
     const finalSubject = subject.trim() || t.defaultSubject[lang];
-    const body = [
-      `${t.fields.name[lang]}: ${name.trim()}`,
-      `${t.fields.email[lang]}: ${email.trim()}`,
-      '',
-      message.trim(),
-    ].join('\n');
 
-    const url = `mailto:${links.email}?subject=${encodeURIComponent(finalSubject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = url;
-    handleClose();
+    setStatus('sending');
+    try {
+      const res = await fetch(links.contactForm, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          subject: finalSubject,
+          message: message.trim(),
+          _subject: finalSubject,
+          _replyto: email.trim(),
+        }),
+      });
+      if (!res.ok) throw new Error('send-failed');
+      setStatus('success');
+    } catch {
+      setStatus('error');
+    }
   };
 
   const showError = (field: FieldName) => (touched[field] ? errors[field] : undefined);
+
+  if (status === 'success') {
+    return (
+      <Modal
+        open={open}
+        onClose={handleClose}
+        title={t.success.title[lang]}
+        description={t.success.body[lang]}
+      >
+        <div className="flex flex-col items-center gap-7 py-3 text-center">
+          <SuccessCheck />
+          <motion.button
+            type="button"
+            onClick={handleClose}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-flex h-10 items-center rounded-full bg-foreground px-6 text-sm font-medium text-background transition-colors hover:bg-accent hover:text-accent-foreground"
+          >
+            {t.done[lang]}
+          </motion.button>
+        </div>
+      </Modal>
+    );
+  }
+
+  const sending = status === 'sending';
 
   return (
     <Modal
@@ -167,24 +213,40 @@ export function ContactModal({ open, onClose }: Props) {
           counterLabel={t.counter[lang]}
         />
 
-        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-          {t.hint[lang]}
-        </p>
+        {status === 'error' ? (
+          <p
+            role="alert"
+            className="rounded-lg border border-rose-500/40 bg-rose-500/10 px-3 py-2 text-xs leading-relaxed text-rose-600 dark:text-rose-300"
+          >
+            {t.sendError[lang]}
+          </p>
+        ) : (
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+            {t.hint[lang]}
+          </p>
+        )}
 
         <div className="mt-2 flex items-center justify-end gap-2">
           <button
             type="button"
             onClick={handleClose}
-            className="inline-flex h-10 items-center rounded-full px-4 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            disabled={sending}
+            className="inline-flex h-10 items-center rounded-full px-4 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-muted-foreground"
           >
             {t.cancel[lang]}
           </button>
           <button
             type="submit"
-            className="group inline-flex h-10 items-center gap-2 rounded-full bg-foreground px-5 text-sm font-medium text-background transition-all hover:bg-accent hover:text-accent-foreground"
+            disabled={sending}
+            aria-busy={sending || undefined}
+            className="group inline-flex h-10 items-center gap-2 rounded-full bg-foreground px-5 text-sm font-medium text-background transition-all hover:bg-accent hover:text-accent-foreground disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:bg-foreground disabled:hover:text-background"
           >
-            <Send size={14} className="transition-transform group-hover:translate-x-0.5" />
-            {t.send[lang]}
+            {sending ? (
+              <Loader2 size={14} className="animate-spin" />
+            ) : (
+              <Send size={14} className="transition-transform group-hover:translate-x-0.5" />
+            )}
+            {sending ? t.sending[lang] : t.send[lang]}
           </button>
         </div>
       </form>
@@ -323,5 +385,31 @@ function FieldArea({
         </span>
       )}
     </label>
+  );
+}
+
+
+function SuccessCheck() {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      fill="none"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="pointer-events-none h-16 w-16 text-accent"
+      aria-hidden
+    >
+      <motion.path
+        d="M7 17 L13.5 23 L25 11"
+        stroke="currentColor"
+        initial={{ pathLength: 0, opacity: 0 }}
+        animate={{ pathLength: 1, opacity: 1 }}
+        transition={{
+          pathLength: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+          opacity: { duration: 0.12 },
+        }}
+      />
+    </svg>
   );
 }
