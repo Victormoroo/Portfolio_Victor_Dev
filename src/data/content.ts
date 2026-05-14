@@ -156,8 +156,8 @@ export const content = {
       en: 'Professional path.',
     },
     sub: {
-      pt: 'Uma linha do tempo dos focos técnicos que moldaram meu trabalho até aqui.',
-      en: 'A timeline of the technical focuses that have shaped my work so far.',
+      pt: 'Por onde passei e o foco técnico de cada parada.',
+      en: 'Where I have worked and the technical focus of each stop.',
     },
     highlightLabel: { pt: 'Projeto destaque', en: 'Featured project' },
     items: {
