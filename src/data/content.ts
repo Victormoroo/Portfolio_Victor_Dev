@@ -8,7 +8,7 @@ export type Language = 'pt' | 'en';
 export const links = {
   github: 'https://github.com/Victormoroo',
   linkedin: 'https://www.linkedin.com/in/victormoroo/',
-  email: 'your.email@example.com',              // TODO: replace
+  email: 'victormoro.dev@gmail.com',
   cv: '#',                                      // TODO: replace with /cv.pdf or external link
   contactForm: 'https://formspree.io/f/mojrzovl',
 };
