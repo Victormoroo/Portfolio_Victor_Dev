@@ -23,7 +23,10 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    const sectionIds = items.map((i) => i.id);
+    // Section ids are language-agnostic — pull from a stable source so this
+    // effect doesn't re-run (and re-attach observers) on language toggle,
+    // which used to flicker the active-pill layout animation.
+    const sectionIds = nav.pt.map((i) => i.id);
     const observers: IntersectionObserver[] = [];
 
     sectionIds.forEach((id) => {
@@ -41,7 +44,7 @@ export function Navbar() {
       observers.push(obs);
     });
     return () => observers.forEach((o) => o.disconnect());
-  }, [items]);
+  }, []);
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-3 z-50 flex justify-center px-3 sm:top-5">
@@ -80,6 +83,7 @@ export function Navbar() {
                   {isActive && (
                     <motion.span
                       layoutId="nav-active"
+                      layoutDependency={active}
                       transition={{ type: 'spring', stiffness: 380, damping: 32 }}
                       className="absolute inset-0 -z-10 rounded-full bg-muted"
                     />
