@@ -159,49 +159,82 @@ export const content = {
       pt: 'Uma linha do tempo dos focos técnicos que moldaram meu trabalho até aqui.',
       en: 'A timeline of the technical focuses that have shaped my work so far.',
     },
+    highlightLabel: { pt: 'Projeto destaque', en: 'Featured project' },
     items: {
       pt: [
         {
-          chapter: 'Capítulo atual',
-          title: 'Projetos full stack end-to-end',
-          body: 'Aplicações completas com autenticação, dashboards, integrações e deploy. Foco em arquitetura limpa e qualidade de produto.',
+          chapter: 'Out 2025 — atual',
+          company: 'HRT Incorporadora · Ib System',
+          title: 'Analista de TI',
+          bullets: [
+            'Operação e suporte da infraestrutura de TI, atendendo +150 usuários em 3 unidades.',
+            'Gestão de ativos, redes (LAN/Wi-Fi), servidores, backups e políticas de segurança.',
+            'Automações internas e integração de sistemas com scripts e RouterBoard (Mikrotik), incluindo rotinas de backup automatizadas.',
+            'Desenvolvimento de sistemas internos para substituir processos manuais em planilhas e dar mais consistência à operação.',
+            'Atuação próxima a Engenharia, Obras, Administrativo, Comercial e Desenvolvimento — traduzindo demandas operacionais em soluções técnicas.',
+            'Resultados: rotina de backup eliminou 12h de retrabalho/mês; redução de 15% no custo com internet.',
+          ],
+          highlight: {
+            name: 'Omnos',
+            description:
+              'Software interno para controle de patrimônio e estoque da empresa. ReactJS + Vite no web, React Native no mobile e backend em Java + Spring sobre PostgreSQL.',
+          },
+          stack: ['React Native', 'ReactJS', 'TypeScript', 'Vite', 'Java', 'Spring', 'PostgreSQL', 'PowerShell', 'Mikrotik', 'RouterOS'],
         },
         {
-          chapter: 'Antes',
-          title: 'Engenharia de back-end',
-          body: 'APIs em Node.js e Java/Spring Boot, modelagem em PostgreSQL, contêineres com Docker e cuidado com escalabilidade.',
-        },
-        {
-          chapter: 'Antes',
-          title: 'Front-end e interface',
-          body: 'React, Next.js, TypeScript e Tailwind. Sistemas de design reutilizáveis, componentes acessíveis e animações sutis.',
-        },
-        {
-          chapter: 'Sempre',
-          title: 'Estudo contínuo',
-          body: 'Arquitetura de software, performance, padrões de produto, acessibilidade e fundamentos de design.',
+          chapter: 'Mai 2023 — Out 2023',
+          company: 'Compass UOL',
+          title: 'Desenvolvedor Back-End · Java / Spring Boot',
+          bullets: [
+            'APIs REST em Java 17 + Spring Boot, com arquitetura em camadas, injeção de dependência e Clean Code.',
+            'Testes automatizados com JUnit e Mockito cobrindo as regras de negócio.',
+            'Serviços AWS (EC2, S3, RDS) e integração contínua via Git/GitHub.',
+            'Squad ágil em Scrum: dailies, plannings e code reviews.',
+          ],
+          highlight: {
+            name: 'Backend de e-commerce',
+            description:
+              'API REST com autenticação (Spring Security + JWT), catálogo, carrinho e pedidos. Modelagem em PostgreSQL, Swagger, tratamento global de exceções e deploy em nuvem.',
+          },
+          stack: ['Java', 'Spring Boot', 'Spring Data JPA', 'PostgreSQL', 'AWS', 'Git', 'Postman', 'Swagger'],
         },
       ],
       en: [
         {
-          chapter: 'Current chapter',
-          title: 'End-to-end full stack projects',
-          body: 'Complete applications with auth, dashboards, integrations and deploy. Focus on clean architecture and product quality.',
+          chapter: 'Oct 2025 — present',
+          company: 'HRT Incorporadora · Ib System',
+          title: 'IT Analyst',
+          bullets: [
+            'IT infrastructure operations and support, serving 150+ users across 3 sites.',
+            'Asset management, LAN/Wi-Fi networking, servers, backups and security policies.',
+            'Internal automations and system integrations with scripts and RouterBoard (Mikrotik), including automated backup routines.',
+            'Built internal systems to replace manual spreadsheet processes and improve operational consistency.',
+            'Close partnership with Engineering, Construction, Admin, Sales and Development teams — translating operational needs into technical solutions.',
+            'Outcomes: backup routine cut 12h of rework/month; 15% reduction in internet costs.',
+          ],
+          highlight: {
+            name: 'Omnos',
+            description:
+              'Internal software for company asset and inventory control. ReactJS + Vite on the web, React Native on mobile, Java + Spring on the backend over PostgreSQL.',
+          },
+          stack: ['React Native', 'ReactJS', 'TypeScript', 'Vite', 'Java', 'Spring', 'PostgreSQL', 'PowerShell', 'Mikrotik', 'RouterOS'],
         },
         {
-          chapter: 'Before',
-          title: 'Back-end engineering',
-          body: 'APIs in Node.js and Java/Spring Boot, PostgreSQL modeling, Docker-based environments and care for scalability.',
-        },
-        {
-          chapter: 'Before',
-          title: 'Front-end and interface',
-          body: 'React, Next.js, TypeScript and Tailwind. Reusable design systems, accessible components and subtle animations.',
-        },
-        {
-          chapter: 'Always',
-          title: 'Continuous learning',
-          body: 'Software architecture, performance, product patterns, accessibility and design fundamentals.',
+          chapter: 'May 2023 — Oct 2023',
+          company: 'Compass UOL',
+          title: 'Back-End Developer · Java / Spring Boot',
+          bullets: [
+            'REST APIs in Java 17 + Spring Boot with layered architecture, dependency injection and Clean Code.',
+            'Automated tests with JUnit and Mockito covering business rules.',
+            'AWS services (EC2, S3, RDS) and continuous integration via Git/GitHub.',
+            'Agile squad in Scrum: dailies, plannings and code reviews.',
+          ],
+          highlight: {
+            name: 'E-commerce backend',
+            description:
+              'REST API with authentication (Spring Security + JWT), catalog, cart and orders. PostgreSQL modeling, Swagger, global exception handling and cloud deploy.',
+          },
+          stack: ['Java', 'Spring Boot', 'Spring Data JPA', 'PostgreSQL', 'AWS', 'Git', 'Postman', 'Swagger'],
         },
       ],
     },

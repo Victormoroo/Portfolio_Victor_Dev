@@ -1,3 +1,4 @@
+import { Sparkles } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { content } from '@/data/content';
 import { Reveal } from '@/components/ui/Reveal';
@@ -45,7 +46,7 @@ export function Experience() {
                 </div>
 
                 <div className="rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-border-strong hover:bg-surface-elevated sm:p-8">
-                  <div className="flex items-center gap-3">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
                     <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
                       {String(i + 1).padStart(2, '0')}
                     </span>
@@ -53,9 +54,54 @@ export function Experience() {
                     <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                       {item.chapter}
                     </span>
+                    {'company' in item && item.company && (
+                      <>
+                        <span aria-hidden className="text-muted-foreground/40">·</span>
+                        <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-foreground/85">
+                          {item.company}
+                        </span>
+                      </>
+                    )}
                   </div>
                   <h3 className="mt-3 text-lg font-semibold text-foreground sm:text-xl">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+                  {'bullets' in item && item.bullets && (
+                    <ul className="mt-3 space-y-1.5">
+                      {item.bullets.map((b, j) => (
+                        <li key={j} className="flex gap-2.5 text-sm leading-relaxed text-muted-foreground">
+                          <span aria-hidden className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent/70" />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {'highlight' in item && item.highlight && (
+                    <div className="mt-5 rounded-xl border border-accent/30 bg-accent/[0.06] p-4 sm:p-5">
+                      <div className="flex items-center gap-2 text-accent">
+                        <Sparkles size={12} strokeWidth={2} />
+                        <span className="font-mono text-[10px] uppercase tracking-[0.24em]">
+                          {t.highlightLabel[lang]}
+                        </span>
+                      </div>
+                      <h4 className="mt-2 text-base font-semibold text-foreground sm:text-lg">
+                        {item.highlight.name}
+                      </h4>
+                      <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                        {item.highlight.description}
+                      </p>
+                    </div>
+                  )}
+                  {'stack' in item && item.stack && (
+                    <div className="mt-5 flex flex-wrap gap-1.5">
+                      {item.stack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded-full border border-border bg-background px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </li>
             </Reveal>
