@@ -23,7 +23,7 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    // Section ids are language-agnostic — pull from a stable source so this
+    // Section ids are language-agnostic - pull from a stable source so this
     // effect doesn't re-run (and re-attach observers) on language toggle,
     // which used to flicker the active-pill layout animation.
     const sectionIds = nav.pt.map((i) => i.id);
@@ -61,7 +61,7 @@ export function Navbar() {
       >
         <a
           href="#home"
-          aria-label="Victor Moro — home"
+          aria-label="Victor Moro - home"
           className="hidden items-center gap-2 rounded-full pl-3 pr-2 sm:flex"
         >
           <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-foreground">VM</span>

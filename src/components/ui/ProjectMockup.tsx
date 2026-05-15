@@ -179,7 +179,7 @@ function LandingMock() {
       </div>
 
       <div>
-        <div className="font-mono text-[9px] uppercase tracking-widest text-accent">— launch</div>
+        <div className="font-mono text-[9px] uppercase tracking-widest text-accent">- launch</div>
         <div className="mt-1 text-[22px] font-semibold leading-[0.95] tracking-tightest text-foreground">
           Crafted<br />
           to convert.

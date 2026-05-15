@@ -7,7 +7,7 @@
 
 @layer base {
   :root {
-    /* Light — cool blueprint canvas, vivid cyan accent */
+    /* Light - cool blueprint canvas, vivid cyan accent */
     --background: 226 231 237;
     --foreground: 12 17 23;
     --muted: 214 220 226;
@@ -16,13 +16,13 @@
     --surface-elevated: 250 251 253;
     --border: 198 207 215;
     --border-strong: 156 168 180;
-    --accent: 8 145 178;             /* cyan-600 — vivid petrol */
+    --accent: 8 145 178;             /* cyan-600 - vivid petrol */
     --accent-foreground: 250 251 253;
     --secondary: 70 81 95;
   }
 
   .dark {
-    /* Dark — deep cool slate, off-white ink, neon cyan accent */
+    /* Dark - deep cool slate, off-white ink, neon cyan accent */
     --background: 10 14 18;
     --foreground: 231 238 244;
     --muted: 22 29 36;
@@ -31,7 +31,7 @@
     --surface-elevated: 22 29 36;
     --border: 29 38 47;
     --border-strong: 42 55 68;
-    --accent: 34 211 238;            /* cyan-400 — neon petrol */
+    --accent: 34 211 238;            /* cyan-400 - neon petrol */
     --accent-foreground: 10 14 18;
     --secondary: 125 140 155;
   }

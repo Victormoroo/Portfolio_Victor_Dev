@@ -49,8 +49,8 @@ export const content = {
     },
     name: 'Victor Moro',
     headline: {
-      pt: 'Construo aplicações web modernas — do front-end refinado ao back-end estruturado.',
-      en: 'I build modern web applications — from refined front-end to structured back-end.',
+      pt: 'Construo aplicações web modernas - do front-end refinado ao back-end estruturado.',
+      en: 'I build modern web applications - from refined front-end to structured back-end.',
     },
     sub: {
       pt: 'Foco em interfaces bem construídas, código limpo e experiências consistentes em produto.',
@@ -62,8 +62,8 @@ export const content = {
       cv: { pt: 'Baixar CV', en: 'Download CV' },
     },
     location: {
-      pt: 'Brasil — disponível remoto',
-      en: 'Brazil — open to remote',
+      pt: 'Brasil - disponível remoto',
+      en: 'Brazil - open to remote',
     },
   },
 
@@ -75,11 +75,11 @@ export const content = {
     },
     paragraphs: {
       pt: [
-        'Sou desenvolvedor full stack com paixão por construir produtos digitais bem acabados. Trabalho com React, Next.js e TypeScript no front-end e Node.js, Java e Spring Boot no back-end — sempre buscando o equilíbrio entre arquitetura sólida e experiência refinada para o usuário final.',
+        'Sou desenvolvedor full stack com paixão por construir produtos digitais bem acabados. Trabalho com React, Next.js e TypeScript no front-end e Node.js, Java e Spring Boot no back-end - sempre buscando o equilíbrio entre arquitetura sólida e experiência refinada para o usuário final.',
         'Acredito que software bem feito é o resultado de decisões pequenas e consistentes: escolher a abstração certa, escrever um teste a mais, refinar uma transição até parecer natural. É essa atenção que tento levar para cada entrega.',
       ],
       en: [
-        "I'm a full stack developer with a passion for building well-crafted digital products. I work with React, Next.js and TypeScript on the front-end, and Node.js, Java and Spring Boot on the back-end — always looking for the balance between solid architecture and a refined end-user experience.",
+        "I'm a full stack developer with a passion for building well-crafted digital products. I work with React, Next.js and TypeScript on the front-end, and Node.js, Java and Spring Boot on the back-end - always looking for the balance between solid architecture and a refined end-user experience.",
         'I believe great software is the result of small, consistent decisions: choosing the right abstraction, writing one more test, refining a transition until it feels natural. That care is what I bring to every delivery.',
       ],
     },
@@ -122,8 +122,8 @@ export const content = {
       en: 'Tools I use to ship.',
     },
     sub: {
-      pt: 'Selecionadas pela ergonomia, performance e maturidade — não pela hype.',
-      en: 'Picked for ergonomics, performance and maturity — not hype.',
+      pt: 'Selecionadas pela ergonomia, performance e maturidade - não pela hype.',
+      en: 'Picked for ergonomics, performance and maturity - not hype.',
     },
     categories: {
       frontend: { pt: 'Front-end', en: 'Front-end' },
@@ -163,7 +163,7 @@ export const content = {
     items: {
       pt: [
         {
-          chapter: 'Out 2025 — atual',
+          chapter: 'Out 2025 - atual',
           company: 'HRT Incorporadora · Ib System',
           title: 'Analista de TI',
           bullets: [
@@ -171,7 +171,7 @@ export const content = {
             'Gestão de ativos, redes (LAN/Wi-Fi), servidores, backups e políticas de segurança.',
             'Automações internas e integração de sistemas com scripts e RouterBoard (Mikrotik), incluindo rotinas de backup automatizadas.',
             'Desenvolvimento de sistemas internos para substituir processos manuais em planilhas e dar mais consistência à operação.',
-            'Atuação próxima a Engenharia, Obras, Administrativo, Comercial e Desenvolvimento — traduzindo demandas operacionais em soluções técnicas.',
+            'Atuação próxima a Engenharia, Obras, Administrativo, Comercial e Desenvolvimento - traduzindo demandas operacionais em soluções técnicas.',
             'Resultados: rotina de backup eliminou 12h de retrabalho/mês; redução de 15% no custo com internet.',
           ],
           highlight: {
@@ -182,7 +182,7 @@ export const content = {
           stack: ['React Native', 'ReactJS', 'TypeScript', 'Vite', 'Java', 'Spring', 'PostgreSQL', 'PowerShell', 'Mikrotik', 'RouterOS'],
         },
         {
-          chapter: 'Mai 2023 — Out 2023',
+          chapter: 'Mai 2023 - Out 2023',
           company: 'Compass UOL',
           title: 'Desenvolvedor Back-End · Java / Spring Boot',
           bullets: [
@@ -201,7 +201,7 @@ export const content = {
       ],
       en: [
         {
-          chapter: 'Oct 2025 — present',
+          chapter: 'Oct 2025 - present',
           company: 'HRT Incorporadora · Ib System',
           title: 'IT Analyst',
           bullets: [
@@ -209,7 +209,7 @@ export const content = {
             'Asset management, LAN/Wi-Fi networking, servers, backups and security policies.',
             'Internal automations and system integrations with scripts and RouterBoard (Mikrotik), including automated backup routines.',
             'Built internal systems to replace manual spreadsheet processes and improve operational consistency.',
-            'Close partnership with Engineering, Construction, Admin, Sales and Development teams — translating operational needs into technical solutions.',
+            'Close partnership with Engineering, Construction, Admin, Sales and Development teams - translating operational needs into technical solutions.',
             'Outcomes: backup routine cut 12h of rework/month; 15% reduction in internet costs.',
           ],
           highlight: {
@@ -220,7 +220,7 @@ export const content = {
           stack: ['React Native', 'ReactJS', 'TypeScript', 'Vite', 'Java', 'Spring', 'PostgreSQL', 'PowerShell', 'Mikrotik', 'RouterOS'],
         },
         {
-          chapter: 'May 2023 — Oct 2023',
+          chapter: 'May 2023 - Oct 2023',
           company: 'Compass UOL',
           title: 'Back-End Developer · Java / Spring Boot',
           bullets: [
@@ -258,8 +258,8 @@ export const content = {
     modal: {
       title: { pt: 'Enviar mensagem', en: 'Send a message' },
       intro: {
-        pt: 'Preencha os campos abaixo — a mensagem cai direto no meu e-mail.',
-        en: 'Fill in the fields below — your message lands straight in my inbox.',
+        pt: 'Preencha os campos abaixo - a mensagem cai direto no meu e-mail.',
+        en: 'Fill in the fields below - your message lands straight in my inbox.',
       },
       fields: {
         name: { pt: 'Nome', en: 'Name' },
@@ -289,7 +289,7 @@ export const content = {
         title: { pt: 'Mensagem enviada', en: 'Message sent' },
         body: {
           pt: 'Obrigado por entrar em contato. Te respondo em breve.',
-          en: 'Thanks for reaching out — I will get back to you soon.',
+          en: 'Thanks for reaching out - I will get back to you soon.',
         },
       },
       sendError: {

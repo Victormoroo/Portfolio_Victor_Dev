@@ -1,5 +1,5 @@
 /**
- * Placeholder projects — replace with real work as it ships.
+ * Placeholder projects - replace with real work as it ships.
  * Each project drives a generated abstract mockup; no images required.
  */
 
@@ -60,13 +60,13 @@ export const projects: Project[] = [
         'Fluxo de aprovações multi-nível com trilha de auditoria completa por documento.',
         'Controle financeiro com conciliação bancária automática e DRE consolidada.',
         'Integração com gateways de pagamento e emissão de notas fiscais eletrônicas.',
-        'Módulos plugáveis: estoque, RH, fiscal e BI — ativados por workspace.',
+        'Módulos plugáveis: estoque, RH, fiscal e BI - ativados por workspace.',
       ],
       en: [
         'Multi-level approval flows with full per-document audit trail.',
         'Financial control with automated bank reconciliation and consolidated income statements.',
         'Integration with payment gateways and electronic tax invoice issuing.',
-        'Pluggable modules: inventory, HR, tax and BI — enabled per workspace.',
+        'Pluggable modules: inventory, HR, tax and BI - enabled per workspace.',
       ],
     },
     stack: ['React', 'Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
@@ -111,13 +111,13 @@ export const projects: Project[] = [
       pt: [
         'Tipografia editorial responsiva com escalas fluídas e hierarquia consistente.',
         'Animações sutis ao scroll que respeitam prefers-reduced-motion.',
-        'Performance medida — Lighthouse 100 em LCP, CLS e TBT no perfil mobile.',
+        'Performance medida - Lighthouse 100 em LCP, CLS e TBT no perfil mobile.',
         'Integração com CMS headless para edição de copy sem novo deploy.',
       ],
       en: [
         'Responsive editorial typography with fluid scales and consistent hierarchy.',
         'Subtle scroll-triggered animations honoring prefers-reduced-motion.',
-        'Measured performance — Lighthouse 100 on LCP, CLS and TBT on mobile.',
+        'Measured performance - Lighthouse 100 on LCP, CLS and TBT on mobile.',
         'Headless CMS integration for copy edits without redeploys.',
       ],
     },

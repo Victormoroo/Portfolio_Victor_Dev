@@ -19,7 +19,7 @@ export interface Tech {
   name: string;
   icon: IconType;
   category: TechCategory;
-  /** Brand color used for hover accent only — kept subtle. */
+  /** Brand color used for hover accent only - kept subtle. */
   color: string;
 }
 

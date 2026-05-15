@@ -82,7 +82,7 @@ export function ProjectRow({ project, index }: Props) {
                   href={project.links.code}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={`${t.code[lang]} — ${project.name}`}
+                  aria-label={`${t.code[lang]} - ${project.name}`}
                   className="inline-flex h-9 items-center gap-1.5 rounded-full border border-border bg-background px-3.5 text-xs font-medium transition-colors hover:border-foreground"
                 >
                   <Github size={13} />
