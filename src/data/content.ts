@@ -118,12 +118,12 @@ export const content = {
   stack: {
     label: { pt: 'Stack', en: 'Stack' },
     title: {
-      pt: 'Ferramentas que uso para entregar.',
-      en: 'Tools I use to ship.',
+      pt: 'Ferramentas que possuo amplo conhecimento.',
+      en: 'Tools that I have extensive knowledge of.',
     },
     sub: {
-      pt: 'Selecionadas pela ergonomia, performance e maturidade - não pela hype.',
-      en: 'Picked for ergonomics, performance and maturity - not hype.',
+      pt: 'Selecionadas pela ergonomia, performance, maturidade e experiencia.',
+      en: 'Picked for ergonomics, performance, maturity and experience.',
     },
     categories: {
       frontend: { pt: 'Front-end', en: 'Front-end' },
