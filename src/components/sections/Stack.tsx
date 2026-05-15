@@ -7,14 +7,15 @@ import { TechCard } from '@/components/ui/TechCard';
 
 const order: TechCategory[] = ['frontend', 'mobile', 'backend', 'database', 'tools'];
 
+// Group once at module load — data is static, no need to recompute per render.
+const grouped = order.map((cat) => ({
+  cat,
+  items: technologies.filter((tech) => tech.category === cat),
+}));
+
 export function Stack() {
   const { lang } = useLanguage();
   const t = content.stack;
-
-  const grouped = order.map((cat) => ({
-    cat,
-    items: technologies.filter((tech) => tech.category === cat),
-  }));
 
   return (
     <section id="stack" className="relative scroll-mt-24 py-24 sm:py-32">
