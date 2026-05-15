@@ -35,20 +35,6 @@ const config: Config = {
         display: ['clamp(3rem, 9vw, 8rem)', { lineHeight: '0.92', letterSpacing: '-0.04em' }],
         'display-sm': ['clamp(2.25rem, 6vw, 4.5rem)', { lineHeight: '0.95', letterSpacing: '-0.035em' }],
       },
-      animation: {
-        'fade-in': 'fadeIn 0.6s ease-out forwards',
-        'shimmer': 'shimmer 2.4s linear infinite',
-      },
-      keyframes: {
-        fadeIn: {
-          from: { opacity: '0', transform: 'translateY(8px)' },
-          to: { opacity: '1', transform: 'translateY(0)' },
-        },
-        shimmer: {
-          '0%': { backgroundPosition: '-200% 0' },
-          '100%': { backgroundPosition: '200% 0' },
-        },
-      },
     },
   },
   plugins: [],

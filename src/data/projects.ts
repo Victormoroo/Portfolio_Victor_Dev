@@ -3,7 +3,7 @@
  * Each project drives a generated abstract mockup; no images required.
  */
 
-export type ProjectKind = 'saas' | 'erp' | 'fullstack' | 'landing';
+export type ProjectKind = 'saas' | 'erp' | 'fullstack';
 
 export interface Project {
   slug: string;
@@ -96,32 +96,6 @@ export const projects: Project[] = [
       ],
     },
     stack: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Docker'],
-    links: { demo: '#', code: '#' },
-  },
-  {
-    slug: 'lume-landing',
-    kind: 'landing',
-    name: 'Lume',
-    type: { pt: 'Landing · Premium', en: 'Landing · Premium' },
-    description: {
-      pt: 'Landing page de produto digital construída com foco em tipografia editorial e desempenho real.',
-      en: 'Digital product landing built with editorial typography and real-world performance in mind.',
-    },
-    bullets: {
-      pt: [
-        'Tipografia editorial responsiva com escalas fluídas e hierarquia consistente.',
-        'Animações sutis ao scroll que respeitam prefers-reduced-motion.',
-        'Performance medida - Lighthouse 100 em LCP, CLS e TBT no perfil mobile.',
-        'Integração com CMS headless para edição de copy sem novo deploy.',
-      ],
-      en: [
-        'Responsive editorial typography with fluid scales and consistent hierarchy.',
-        'Subtle scroll-triggered animations honoring prefers-reduced-motion.',
-        'Measured performance - Lighthouse 100 on LCP, CLS and TBT on mobile.',
-        'Headless CMS integration for copy edits without redeploys.',
-      ],
-    },
-    stack: ['Next.js', 'TypeScript', 'Tailwind', 'Framer Motion'],
     links: { demo: '#', code: '#' },
   },
 ];

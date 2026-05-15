@@ -20,7 +20,6 @@ export function ProjectMockup({ kind }: Props) {
         {kind === 'saas' && <SaasMock />}
         {kind === 'erp' && <ErpMock />}
         {kind === 'fullstack' && <FullStackMock />}
-        {kind === 'landing' && <LandingMock />}
       </div>
     </div>
   );
@@ -164,39 +163,3 @@ function FullStackMock() {
   );
 }
 
-function LandingMock() {
-  return (
-    <div className="flex h-full flex-col justify-between">
-      <div className="flex items-center justify-between">
-        <div className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground">
-          /lume
-        </div>
-        <div className="flex gap-2 font-mono text-[9px] text-muted-foreground">
-          <span>work</span>
-          <span>about</span>
-          <span>contact</span>
-        </div>
-      </div>
-
-      <div>
-        <div className="font-mono text-[9px] uppercase tracking-widest text-accent">- launch</div>
-        <div className="mt-1 text-[22px] font-semibold leading-[0.95] tracking-tightest text-foreground">
-          Crafted<br />
-          to convert.
-        </div>
-        <div className="mt-2 max-w-[60%] text-[9px] leading-snug text-muted-foreground">
-          A digital product page tuned for clarity, speed and conversion.
-        </div>
-      </div>
-
-      <div className="flex items-center gap-2">
-        <span className="rounded-full bg-foreground px-3 py-1 text-[9px] font-medium text-background">
-          Get started
-        </span>
-        <span className="rounded-full border border-border px-3 py-1 text-[9px] text-foreground">
-          Watch demo
-        </span>
-      </div>
-    </div>
-  );
-}
