@@ -49,8 +49,8 @@ export const content = {
     },
     name: 'Victor Moro',
     headline: {
-      pt: 'Construo aplicações web modernas - do front-end refinado ao back-end estruturado.',
-      en: 'I build modern web applications - from refined front-end to structured back-end.',
+      pt: 'Construo aplicações web modernas do front-end refinado ao back-end estruturado.',
+      en: 'I build modern web applications from refined front-end to structured back-end.',
     },
     sub: {
       pt: 'Foco em interfaces bem construídas, código limpo e experiências consistentes em produto.',
@@ -75,11 +75,11 @@ export const content = {
     },
     paragraphs: {
       pt: [
-        'Sou desenvolvedor full stack com paixão por construir produtos digitais bem acabados. Trabalho com React, Next.js e TypeScript no front-end e Node.js, Java e Spring Boot no back-end - sempre buscando o equilíbrio entre arquitetura sólida e experiência refinada para o usuário final.',
+        'Sou desenvolvedor full stack com paixão por construir produtos digitais bem acabados. Trabalho com React, Next.js e TypeScript no front-end e Node.js, Java e Spring Boot no back-end, sempre buscando o equilíbrio entre arquitetura sólida e experiência refinada para o usuário final.',
         'Acredito que software bem feito é o resultado de decisões pequenas e consistentes: escolher a abstração certa, escrever um teste a mais, refinar uma transição até parecer natural. É essa atenção que tento levar para cada entrega.',
       ],
       en: [
-        "I'm a full stack developer with a passion for building well-crafted digital products. I work with React, Next.js and TypeScript on the front-end, and Node.js, Java and Spring Boot on the back-end - always looking for the balance between solid architecture and a refined end-user experience.",
+        "I'm a full stack developer with a passion for building well-crafted digital products. I work with React, Next.js and TypeScript on the front-end, and Node.js, Java and Spring Boot on the back-end, always looking for the balance between solid architecture and a refined end-user experience.",
         'I believe great software is the result of small, consistent decisions: choosing the right abstraction, writing one more test, refining a transition until it feels natural. That care is what I bring to every delivery.',
       ],
     },
