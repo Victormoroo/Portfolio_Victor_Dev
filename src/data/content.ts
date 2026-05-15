@@ -127,6 +127,7 @@ export const content = {
     },
     categories: {
       frontend: { pt: 'Front-end', en: 'Front-end' },
+      mobile: { pt: 'Mobile', en: 'Mobile' },
       backend: { pt: 'Back-end', en: 'Back-end' },
       database: { pt: 'Database', en: 'Database' },
       tools: { pt: 'Tools', en: 'Tools' },

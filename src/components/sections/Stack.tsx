@@ -5,7 +5,7 @@ import { Reveal } from '@/components/ui/Reveal';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { TechCard } from '@/components/ui/TechCard';
 
-const order: TechCategory[] = ['frontend', 'backend', 'database', 'tools'];
+const order: TechCategory[] = ['frontend', 'mobile', 'backend', 'database', 'tools'];
 
 export function Stack() {
   const { lang } = useLanguage();
