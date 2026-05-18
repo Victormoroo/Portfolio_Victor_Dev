@@ -1,0 +1,19 @@
+{
+  "name": "Victor Moro · Full Stack Developer",
+  "short_name": "Victor Moro",
+  "description": "Portfólio de Victor Moro — Full Stack Developer.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0e12",
+  "theme_color": "#0a0e12",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ]
+}
