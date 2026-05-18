@@ -5,6 +5,11 @@
 
 export type ProjectKind = 'saas' | 'erp' | 'fullstack';
 
+export interface ProjectImage {
+  src: string;
+  alt: { pt: string; en: string };
+}
+
 export interface Project {
   slug: string;
   kind: ProjectKind;
@@ -13,6 +18,9 @@ export interface Project {
   description: { pt: string; en: string };
   bullets: { pt: string[]; en: string[] };
   stack: string[];
+  /** When provided, the mockup slot renders a carousel of real images
+   *  instead of the abstract generated mockup. */
+  images?: readonly ProjectImage[];
   links: {
     demo?: string;
     code?: string;
@@ -47,30 +55,56 @@ export const projects: Project[] = [
     links: { demo: '#', code: '#' },
   },
   {
-    slug: 'aurora-erp',
-    kind: 'erp',
-    name: 'Aurora ERP',
-    type: { pt: 'Sistema · Gestão', en: 'Business · Management' },
+    slug: 'neto-cell',
+    kind: 'fullstack',
+    name: 'Neto Cell Assistência Técnica',
+    type: { pt: 'Site · Negócio Local', en: 'Site · Local Business' },
     description: {
-      pt: 'Sistema de gestão empresarial modular, com fluxos de aprovação, controle financeiro e integrações fiscais.',
-      en: 'Modular business management system with approval flows, financial control and tax integrations.',
+      pt: 'Site institucional de uma assistência técnica de celulares em Franca-SP, com integração WhatsApp, mapa embutido e SEO local.',
+      en: 'Institutional site for a phone repair shop in Franca-SP, with WhatsApp integration, embedded map and local SEO.',
     },
     bullets: {
       pt: [
-        'Fluxo de aprovações multi-nível com trilha de auditoria completa por documento.',
-        'Controle financeiro com conciliação bancária automática e DRE consolidada.',
-        'Integração com gateways de pagamento e emissão de notas fiscais eletrônicas.',
-        'Módulos plugáveis: estoque, RH, fiscal e BI - ativados por workspace.',
+        'Landing institucional com seções de serviços, depoimentos, contato e horários.',
+        'Integração com WhatsApp por links pré-formatados a partir de número e mensagem padrão.',
+        'Mapa do Google embutido e bloco de contato com endereço, formas de pagamento e redes sociais.',
+        'SEO local com metadata por página e dados estruturados JSON-LD (LocalBusiness).',
       ],
       en: [
-        'Multi-level approval flows with full per-document audit trail.',
-        'Financial control with automated bank reconciliation and consolidated income statements.',
-        'Integration with payment gateways and electronic tax invoice issuing.',
-        'Pluggable modules: inventory, HR, tax and BI - enabled per workspace.',
+        'Institutional landing with services, testimonials, contact and business hours sections.',
+        'WhatsApp integration through pre-formatted URLs built from a base number and default message.',
+        'Embedded Google Maps and a contact block with address, payment methods and social links.',
+        'Local SEO with per-page metadata and JSON-LD structured data (LocalBusiness).',
       ],
     },
-    stack: ['React', 'Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
-    links: { demo: '#', code: '#' },
+    stack: ['Next.js', 'React 19', 'TypeScript', 'Tailwind CSS'],
+    images: [
+      {
+        src: '/projects/NetoCell/01.png',
+        alt: {
+          pt: 'Neto Cell - página inicial do site institucional',
+          en: 'Neto Cell - institutional site landing',
+        },
+      },
+      {
+        src: '/projects/NetoCell/02.png',
+        alt: {
+          pt: 'Neto Cell - seção de serviços e contato',
+          en: 'Neto Cell - services and contact section',
+        },
+      },
+      {
+        src: '/projects/NetoCell/03.png',
+        alt: {
+          pt: 'Neto Cell - mapa, depoimentos e horário',
+          en: 'Neto Cell - map, testimonials and business hours',
+        },
+      },
+    ],
+    links: {
+      demo: 'https://netocellassistencia.netlify.app/',
+      code: 'https://github.com/Victormoroo/Neto_Cell_Assistencia_Tecnica',
+    },
   },
   {
     slug: 'orbita-platform',
