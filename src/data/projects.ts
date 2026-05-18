@@ -96,8 +96,8 @@ export const projects: Project[] = [
       {
         src: '/projects/NetoCell/03.png',
         alt: {
-          pt: 'Neto Cell - mapa, depoimentos e horário',
-          en: 'Neto Cell - map, testimonials and business hours',
+          pt: 'Neto Cell - mockup do projeto desktop e mobile',
+          en: 'Neto Cell - desktop and mobile project mockup',
         },
       },
     ],
