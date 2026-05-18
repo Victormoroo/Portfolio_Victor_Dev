@@ -33,6 +33,17 @@ export const nav = {
 } as const;
 
 export const content = {
+  meta: {
+    title: {
+      pt: 'Victor Moro · Full Stack Developer · React, TypeScript, Java & Spring',
+      en: 'Victor Moro · Full Stack Developer · React, TypeScript, Java & Spring',
+    },
+    description: {
+      pt: 'Portfólio de Victor Moro - Full Stack Developer. Construo aplicações web modernas com React, Next.js, TypeScript, Node.js, Java e Spring Boot.',
+      en: 'Portfolio of Victor Moro - Full Stack Developer. I build modern web applications with React, Next.js, TypeScript, Node.js, Java and Spring Boot.',
+    },
+  },
+
   loading: {
     pt: 'Construindo experiências digitais',
     en: 'Building digital experiences',
