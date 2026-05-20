@@ -159,6 +159,9 @@ export const content = {
       demo: { pt: 'Demo', en: 'Demo' },
       code: { pt: 'Código', en: 'Code' },
     },
+    status: {
+      inProgress: { pt: 'Em andamento', en: 'In progress' },
+    },
   },
 
   experience: {

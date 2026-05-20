@@ -39,6 +39,20 @@ export function ProjectRow({ project, index }: Props) {
           </div>
         </Reveal>
 
+        {project.status === 'in-progress' && (
+          <Reveal delay={0.03}>
+            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-accent/40 bg-accent/[0.08] py-1 pl-1.5 pr-3">
+              <span aria-hidden className="relative grid h-3 w-3 place-items-center">
+                <span className="absolute inset-0 animate-ping rounded-full bg-accent/50" />
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              </span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
+                {content.projects.status.inProgress[lang]}
+              </span>
+            </div>
+          </Reveal>
+        )}
+
         <Reveal delay={0.05}>
           <h3 className="text-4xl font-semibold leading-[0.98] tracking-display text-balance sm:text-5xl lg:text-[3.75rem]">
             {project.name}

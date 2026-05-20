@@ -10,6 +10,8 @@ export interface ProjectImage {
   alt: { pt: string; en: string };
 }
 
+export type ProjectStatus = 'in-progress';
+
 export interface Project {
   slug: string;
   kind: ProjectKind;
@@ -21,6 +23,8 @@ export interface Project {
   /** When provided, the mockup slot renders a carousel of real images
    *  instead of the abstract generated mockup. */
   images?: readonly ProjectImage[];
+  /** Optional development status. When set, a badge is rendered in the card. */
+  status?: ProjectStatus;
   links: {
     demo?: string;
     code?: string;
@@ -107,29 +111,30 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: 'orbita-platform',
-    kind: 'fullstack',
-    name: 'Órbita',
-    type: { pt: 'Aplicação · Full Stack', en: 'App · Full Stack' },
+    slug: 'navaro',
+    kind: 'saas',
+    name: 'Navaro',
+    type: { pt: 'SaaS · Barbearia', en: 'SaaS · Barbershop' },
+    status: 'in-progress',
     description: {
-      pt: 'Plataforma full stack com autenticação corporativa, RBAC e dashboards personalizáveis por usuário.',
-      en: 'Full stack platform with enterprise authentication, RBAC and per-user customizable dashboards.',
+      pt: 'SaaS de gestão para barbearias - agenda online, cadastro de clientes e visão financeira em um único painel. Identidade visual personalizada para que cada estabelecimento opere com a própria cara.',
+      en: 'Management SaaS for barbershops - online booking, customer base and financial overview in a single dashboard. Per-shop visual identity so every establishment runs on a system that wears its own brand.',
     },
     bullets: {
       pt: [
-        'Autenticação por e-mail/senha, OAuth e SSO empresarial via SAML.',
-        'RBAC com papéis customizáveis e permissões herdáveis em árvore organizacional.',
-        'API REST documentada via OpenAPI com SDK gerado em TypeScript.',
-        'Dashboards personalizáveis por usuário, com layouts e filtros persistentes.',
+        'Agenda online com confirmação e lembretes automáticos por WhatsApp.',
+        'Cadastro de clientes com histórico de serviços, ticket médio e programa de fidelidade.',
+        'Catálogo de serviços e produtos com cobrança integrada e múltiplas formas de pagamento.',
+        'Personalização visual por barbearia: cada sistema fica com a cara do estabelecimento: cores, logotipo e identidade próprios.',
       ],
       en: [
-        'Authentication via email/password, OAuth and enterprise SSO over SAML.',
-        'RBAC with custom roles and tree-inheritable permissions across the org.',
-        'REST API documented through OpenAPI with a generated TypeScript SDK.',
-        'User-customizable dashboards with persisted layouts and filters.',
+        'Online booking with automatic WhatsApp confirmations and reminders.',
+        'Customer profiles with service history, average ticket and loyalty program.',
+        'Service and product catalog with integrated checkout and multiple payment methods.',
+        'Per-shop visual customization: each instance carries the shop\'s own brand: colors, logo and identity.',
       ],
     },
-    stack: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Docker'],
-    links: { demo: '#', code: '#' },
+    stack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
+    links: {},
   },
 ];
