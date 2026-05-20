@@ -5,7 +5,7 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { cn } from '@/lib/cn';
 
 export interface CarouselImage {
-  src: string;
+  src: string | { pt: string; en: string };
   alt: { pt: string; en: string };
 }
 
@@ -51,6 +51,8 @@ export function Carousel({ images, label, autoPlayMs = 5500 }: Props) {
   };
 
   const current = images[index];
+  const resolvedSrc =
+    typeof current.src === 'string' ? current.src : current.src[lang];
 
   return (
     <div
@@ -67,16 +69,16 @@ export function Carousel({ images, label, autoPlayMs = 5500 }: Props) {
     >
       <AnimatePresence initial={false} mode="sync">
         <motion.img
-          key={current.src}
-          src={current.src}
+          key={resolvedSrc}
+          src={resolvedSrc}
           alt={current.alt[lang]}
           loading={index === 0 ? 'eager' : 'lazy'}
           decoding="async"
           draggable={false}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0, filter: 'blur(8px)' }}
+          animate={{ opacity: 1, filter: 'blur(0px)' }}
+          exit={{ opacity: 0, filter: 'blur(6px)' }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/mockup:scale-[1.04]"
         />
       </AnimatePresence>

@@ -6,7 +6,9 @@
 export type ProjectKind = 'saas' | 'erp' | 'fullstack';
 
 export interface ProjectImage {
-  src: string;
+  /** Single asset, or per-language variants ({ pt, en }) when the screenshot
+   *  itself differs by locale. */
+  src: string | { pt: string; en: string };
   alt: { pt: string; en: string };
 }
 
@@ -135,6 +137,18 @@ export const projects: Project[] = [
       ],
     },
     stack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
+    images: [
+      {
+        src: {
+          pt: '/projects/Navaro/navaro-pt.png',
+          en: '/projects/Navaro/navaro-eng.png',
+        },
+        alt: {
+          pt: 'Navaro - prévia do painel em português',
+          en: 'Navaro - dashboard preview in English',
+        },
+      },
+    ],
     links: {},
   },
 ];
