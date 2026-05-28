@@ -16,16 +16,11 @@ export function Projects() {
           <SectionLabel number="03" label={t.label[lang]} />
         </Reveal>
 
-        <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-12">
-          <Reveal direction="up" className="lg:col-span-7">
+        <div className="mt-8">
+          <Reveal direction="up">
             <h2 className="text-3xl font-semibold leading-[1.05] tracking-display text-balance sm:text-5xl">
               {t.title[lang]}
             </h2>
-          </Reveal>
-          <Reveal delay={0.1} className="lg:col-span-5">
-            <p className="text-[15px] leading-relaxed text-muted-foreground text-balance">
-              {t.sub[lang]}
-            </p>
           </Reveal>
         </div>
 
