@@ -35,30 +35,55 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: 'metrica-dashboard',
-    kind: 'saas',
-    name: 'Métrica',
-    type: { pt: 'SaaS · Dashboard', en: 'SaaS · Dashboard' },
+    slug: 'javacom-api',
+    kind: 'fullstack',
+    name: 'JavaCom API',
+    type: { pt: 'API REST · E-commerce', en: 'REST API · E-commerce' },
     description: {
-      pt: 'Dashboard analítico para times de produto, focado em leitura rápida e decisões guiadas por dados.',
-      en: 'Analytics dashboard for product teams, focused on quick reads and data-driven decisions.',
+      pt: 'API REST de e-commerce com carrinho de compras, gestão de produtos, autenticação JWT e controle de estoque transacional. Documentada com OpenAPI 3 e perfis de acesso ADMIN/USER.',
+      en: 'E-commerce REST API featuring shopping cart, product management, JWT authentication and transactional stock control. Documented with OpenAPI 3 and ADMIN/USER access roles.',
     },
     bullets: {
       pt: [
-        'Visualizações em tempo real com filtros segmentados por período, plano e cohort.',
-        'Relatórios exportáveis em PDF e CSV com agendamento de envio por e-mail.',
-        'Painel de alertas customizáveis para queda de MRR, churn anormal e picos de tráfego.',
-        'Multi-tenant com permissões granulares por workspace e auditoria de acessos.',
+        'Catálogo público de produtos e gestão administrativa com soft delete preservando integridade dos pedidos.',
+        'Carrinho persistente por usuário e checkout transacional com validação e baixa de estoque em uma única operação.',
+        'Autenticação stateless com JWT (HS256), perfis ADMIN/USER e autorização declarativa por método.',
+        'Documentação Swagger/OpenAPI 3 com schemas, exemplos, códigos HTTP e autorização persistida na UI.',
       ],
       en: [
-        'Real-time charts with filters by date range, plan tier and cohort.',
-        'Exportable reports in PDF and CSV with scheduled email delivery.',
-        'Custom alert panel for MRR drops, abnormal churn and traffic spikes.',
-        'Multi-tenant with granular workspace permissions and access auditing.',
+        'Public product catalog and admin management with soft delete that preserves order integrity.',
+        'Per-user persistent cart and transactional checkout with single-step stock validation and decrement.',
+        'Stateless JWT authentication (HS256), ADMIN/USER roles and declarative method-level authorization.',
+        'Swagger/OpenAPI 3 docs with schemas, examples, HTTP status codes and persisted authorization in the UI.',
       ],
     },
-    stack: ['Next.js', 'TypeScript', 'Tailwind', 'Node.js', 'PostgreSQL'],
-    links: { demo: '#', code: '#' },
+    stack: ['Java 21', 'Spring Boot 4', 'Spring Security', 'JPA / Hibernate', 'H2 Database', 'PostgreSQL', 'OpenAPI / Swagger'],
+    images: [
+      {
+        src: '/projects/JavaCom_API/terminal.mp4',
+        alt: {
+          pt: 'JavaCom API - demonstração da CLI interativa no terminal',
+          en: 'JavaCom API - interactive CLI demo in the terminal',
+        },
+      },
+      {
+        src: '/projects/JavaCom_API/swagger.png',
+        alt: {
+          pt: 'JavaCom API - documentação interativa Swagger / OpenAPI',
+          en: 'JavaCom API - interactive Swagger / OpenAPI documentation',
+        },
+      },
+      {
+        src: '/projects/JavaCom_API/h2-database.png',
+        alt: {
+          pt: 'JavaCom API - console do banco H2 com as tabelas do sistema',
+          en: 'JavaCom API - H2 database console showing the system tables',
+        },
+      },
+    ],
+    links: {
+      code: 'https://github.com/Victormoroo/JavaCom_API',
+    },
   },
   {
     slug: 'neto-cell',
