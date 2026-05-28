@@ -31,14 +31,23 @@ export function Carousel({ images, label, autoPlayMs = 5500 }: Props) {
   const prev = useCallback(() => goTo(index - 1), [goTo, index]);
   const next = useCallback(() => goTo(index + 1), [goTo, index]);
 
+  const current = images[index];
+  const resolvedSrc =
+    typeof current.src === 'string' ? current.src : current.src[lang];
+  const isVideo = /\.(mp4|webm|mov|ogv)$/i.test(resolvedSrc);
+
+  // Não roda o intervalo de auto-advance quando o slide é vídeo —
+  // o avanço acontece via onEnded depois que o vídeo terminar.
+  const skipInterval = isVideo;
+
   useEffect(() => {
-    if (paused || images.length <= 1 || autoPlayMs <= 0) return;
+    if (paused || images.length <= 1 || autoPlayMs <= 0 || skipInterval) return;
     const id = window.setInterval(() => {
       if (document.hidden) return;
       setIndex((i) => (i + 1) % images.length);
     }, autoPlayMs);
     return () => window.clearInterval(id);
-  }, [paused, images.length, autoPlayMs]);
+  }, [paused, images.length, autoPlayMs, skipInterval]);
 
   const handleKey = (e: React.KeyboardEvent) => {
     if (e.key === 'ArrowLeft') {
@@ -49,10 +58,6 @@ export function Carousel({ images, label, autoPlayMs = 5500 }: Props) {
       next();
     }
   };
-
-  const current = images[index];
-  const resolvedSrc =
-    typeof current.src === 'string' ? current.src : current.src[lang];
 
   return (
     <div
@@ -68,19 +73,38 @@ export function Carousel({ images, label, autoPlayMs = 5500 }: Props) {
       className="relative h-full w-full focus:outline-none"
     >
       <AnimatePresence initial={false} mode="sync">
-        <motion.img
-          key={resolvedSrc}
-          src={resolvedSrc}
-          alt={current.alt[lang]}
-          loading={index === 0 ? 'eager' : 'lazy'}
-          decoding="async"
-          draggable={false}
-          initial={{ opacity: 0, filter: 'blur(8px)' }}
-          animate={{ opacity: 1, filter: 'blur(0px)' }}
-          exit={{ opacity: 0, filter: 'blur(6px)' }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/mockup:scale-[1.04]"
-        />
+        {isVideo ? (
+          <motion.video
+            key={resolvedSrc}
+            src={resolvedSrc}
+            aria-label={current.alt[lang]}
+            autoPlay
+            muted
+            playsInline
+            preload="metadata"
+            draggable={false}
+            onEnded={next}
+            initial={{ opacity: 0, filter: 'blur(8px)' }}
+            animate={{ opacity: 1, filter: 'blur(0px)' }}
+            exit={{ opacity: 0, filter: 'blur(6px)' }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/mockup:scale-[1.04]"
+          />
+        ) : (
+          <motion.img
+            key={resolvedSrc}
+            src={resolvedSrc}
+            alt={current.alt[lang]}
+            loading={index === 0 ? 'eager' : 'lazy'}
+            decoding="async"
+            draggable={false}
+            initial={{ opacity: 0, filter: 'blur(8px)' }}
+            animate={{ opacity: 1, filter: 'blur(0px)' }}
+            exit={{ opacity: 0, filter: 'blur(6px)' }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/mockup:scale-[1.04]"
+          />
+        )}
       </AnimatePresence>
 
       {images.length > 1 && (
