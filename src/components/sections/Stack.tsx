@@ -10,7 +10,7 @@ import { cn } from '@/lib/cn';
 
 const order: TechCategory[] = ['frontend', 'mobile', 'backend', 'database', 'tools'];
 
-// Group once at module load — data is static, no need to recompute per render.
+// Group once at module load - data is static, no need to recompute per render.
 const grouped = order.map((cat) => ({
   cat,
   items: technologies.filter((tech) => tech.category === cat),

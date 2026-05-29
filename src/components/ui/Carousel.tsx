@@ -38,7 +38,7 @@ export function Carousel({ images, label, autoPlayMs = 5500 }: Props) {
     typeof current.src === 'string' ? current.src : current.src[lang];
   const isVideo = /\.(mp4|webm|mov|ogv)$/i.test(resolvedSrc);
 
-  // Não roda o intervalo de auto-advance quando o slide é vídeo —
+  // Não roda o intervalo de auto-advance quando o slide é vídeo -
   // o avanço acontece via onEnded depois que o vídeo terminar.
   const skipInterval = isVideo;
 

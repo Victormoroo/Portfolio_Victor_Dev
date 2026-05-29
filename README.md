@@ -18,13 +18,13 @@ Interface refinada, bilíngue, com tema claro/escuro, animações sutis e SEO be
 
 ## ✨ Destaques
 
-- **Bilíngue (PT / EN)** — alternância de idioma em tempo real, persistida em `localStorage`, com `title`/`meta`/`og:locale` sincronizados.
-- **Tema claro & escuro** — preferência do sistema por padrão, escolha manual persistida, sem flash ao carregar (FOUC prevenido antes do paint).
-- **Hero com editor de código vivo** — animação de digitação caractere a caractere com syntax highlighting e cursor piscante.
-- **Carrossel de projetos** — imagens e vídeo, auto-avanço que só inicia quando entra na viewport, transição *burn-in* e screenshots localizados por idioma.
-- **Stack interativa** — cards de tecnologia que revelam a cor da marca no hover; no mobile, grade colapsável via switch.
-- **SEO de primeira** — meta tags completas, Open Graph, Twitter Card, JSON-LD (`Person`, `WebSite`, `ProfilePage`), `sitemap.xml`, `robots.txt` e Web App Manifest.
-- **Acessível e responsivo** — hierarquia semântica de headings, navegação por teclado, `prefers-reduced-motion`, tipografia fluida com `clamp()`.
+- **Bilíngue (PT / EN)** - alternância de idioma em tempo real, persistida em `localStorage`, com `title`/`meta`/`og:locale` sincronizados.
+- **Tema claro & escuro** - preferência do sistema por padrão, escolha manual persistida, sem flash ao carregar (FOUC prevenido antes do paint).
+- **Hero com editor de código vivo** - animação de digitação caractere a caractere com syntax highlighting e cursor piscante.
+- **Carrossel de projetos** - imagens e vídeo, auto-avanço que só inicia quando entra na viewport, transição *burn-in* e screenshots localizados por idioma.
+- **Stack interativa** - cards de tecnologia que revelam a cor da marca no hover; no mobile, grade colapsável via switch.
+- **SEO de primeira** - meta tags completas, Open Graph, Twitter Card, JSON-LD (`Person`, `WebSite`, `ProfilePage`), `sitemap.xml`, `robots.txt` e Web App Manifest.
+- **Acessível e responsivo** - hierarquia semântica de headings, navegação por teclado, `prefers-reduced-motion`, tipografia fluida com `clamp()`.
 
 ## 🧱 Stack
 
@@ -74,7 +74,7 @@ src/
 
 ## ✏️ Personalização
 
-Quase todo o conteúdo é orientado por dados — sem caçar texto dentro dos componentes:
+Quase todo o conteúdo é orientado por dados - sem caçar texto dentro dos componentes:
 
 - **Textos e traduções** → `src/data/content.ts` (cada chave em PT e EN, lado a lado).
 - **Projetos** → `src/data/projects.ts` (nome, descrição, bullets, stack, imagens/vídeo, links, status).
@@ -90,5 +90,5 @@ A camada estática vive em `index.html` e em `public/` (`robots.txt`, `sitemap.x
 [MIT](./LICENSE) © Victor Hugo Moro
 
 <div align="center">
-<sub>Construído com cuidado nos detalhes — do código limpo à transição certa.</sub>
+<sub>Construído com cuidado nos detalhes - do código limpo à transição certa.</sub>
 </div>
