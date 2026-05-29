@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
@@ -20,6 +20,8 @@ export function Carousel({ images, label, autoPlayMs = 5500 }: Props) {
   const { lang } = useLanguage();
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [inView, setInView] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   const goTo = useCallback(
     (i: number) => {
@@ -40,14 +42,27 @@ export function Carousel({ images, label, autoPlayMs = 5500 }: Props) {
   // o avanço acontece via onEnded depois que o vídeo terminar.
   const skipInterval = isVideo;
 
+  // Só começa a contar quando o carrossel entra na viewport, evitando que
+  // ele já apareça avançado quando o usuário rola até a seção.
   useEffect(() => {
-    if (paused || images.length <= 1 || autoPlayMs <= 0 || skipInterval) return;
+    const el = rootRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.35 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (paused || !inView || images.length <= 1 || autoPlayMs <= 0 || skipInterval) return;
     const id = window.setInterval(() => {
       if (document.hidden) return;
       setIndex((i) => (i + 1) % images.length);
     }, autoPlayMs);
     return () => window.clearInterval(id);
-  }, [paused, images.length, autoPlayMs, skipInterval]);
+  }, [paused, inView, images.length, autoPlayMs, skipInterval]);
 
   const handleKey = (e: React.KeyboardEvent) => {
     if (e.key === 'ArrowLeft') {
@@ -61,6 +76,7 @@ export function Carousel({ images, label, autoPlayMs = 5500 }: Props) {
 
   return (
     <div
+      ref={rootRef}
       role="region"
       aria-roledescription="carousel"
       aria-label={label}
