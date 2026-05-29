@@ -43,9 +43,6 @@ export function Stack() {
                   <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
                     /{group.cat}
                   </span>
-                  <p className="mt-1.5 text-sm text-foreground">
-                    {t.categories[group.cat][lang]}
-                  </p>
                 </div>
                 <ul className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
                   {group.items.map((tech) => (
