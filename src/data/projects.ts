@@ -60,17 +60,17 @@ export const projects: Project[] = [
     stack: ['Java 21', 'Spring Boot 4', 'Spring Security', 'JPA / Hibernate', 'H2 Database', 'PostgreSQL', 'OpenAPI / Swagger'],
     images: [
       {
-        src: '/projects/JavaCom_API/terminal.mp4',
-        alt: {
-          pt: 'JavaCom API - demonstração da CLI interativa no terminal',
-          en: 'JavaCom API - interactive CLI demo in the terminal',
-        },
-      },
-      {
         src: '/projects/JavaCom_API/swagger.png',
         alt: {
           pt: 'JavaCom API - documentação interativa Swagger / OpenAPI',
           en: 'JavaCom API - interactive Swagger / OpenAPI documentation',
+        },
+      },
+      {
+        src: '/projects/JavaCom_API/terminal.mp4',
+        alt: {
+          pt: 'JavaCom API - demonstração da CLI interativa no terminal',
+          en: 'JavaCom API - interactive CLI demo in the terminal',
         },
       },
       {
