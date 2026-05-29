@@ -10,7 +10,6 @@ interface Props {
   direction?: Direction;
   amount?: number;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
 }
 
 const offset: Record<Direction, { x: number; y: number }> = {

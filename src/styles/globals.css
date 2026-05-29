@@ -76,10 +76,6 @@
     @apply mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-12;
   }
 
-  .label-mono {
-    @apply font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground;
-  }
-
   .text-balance {
     text-wrap: balance;
   }
@@ -90,10 +86,5 @@
       linear-gradient(to right, rgb(var(--border) / 0.7) 1px, transparent 1px),
       linear-gradient(to bottom, rgb(var(--border) / 0.7) 1px, transparent 1px);
     background-size: 56px 56px;
-  }
-
-  .noise {
-    background-image: radial-gradient(rgb(var(--foreground) / 0.04) 1px, transparent 1px);
-    background-size: 3px 3px;
   }
 }

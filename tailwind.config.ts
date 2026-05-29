@@ -28,12 +28,7 @@ const config: Config = {
         secondary: 'rgb(var(--secondary) / <alpha-value>)',
       },
       letterSpacing: {
-        tightest: '-0.045em',
         display: '-0.035em',
-      },
-      fontSize: {
-        display: ['clamp(3rem, 9vw, 8rem)', { lineHeight: '0.92', letterSpacing: '-0.04em' }],
-        'display-sm': ['clamp(2.25rem, 6vw, 4.5rem)', { lineHeight: '0.95', letterSpacing: '-0.035em' }],
       },
     },
   },
