@@ -52,7 +52,7 @@ export function Hero() {
               </span>
             </div>
 
-            <h1 className="text-display-sm font-semibold uppercase leading-[0.94] tracking-display text-foreground text-balance md:text-display">
+            <h1 className="text-[clamp(3.75rem,13vw,8rem)] font-semibold uppercase leading-[0.94] tracking-display text-foreground text-balance">
               <Reveal delay={0.05}>Victor</Reveal>
               <Reveal delay={0.18}>
                 <span className="relative inline-block">

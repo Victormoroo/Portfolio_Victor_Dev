@@ -136,6 +136,7 @@ export const content = {
       pt: 'Selecionadas pela ergonomia, performance, maturidade e experiencia.',
       en: 'Picked for ergonomics, performance, maturity and experience.',
     },
+    showAll: { pt: 'Ver tudo', en: 'Show all' },
   },
 
   projects: {
