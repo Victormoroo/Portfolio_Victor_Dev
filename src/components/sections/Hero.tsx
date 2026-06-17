@@ -101,7 +101,7 @@ export function Hero() {
               <Mail size={15} />
               {t.cta.contact[lang]}
             </Button>
-            <Button as="a" href={links.cv} variant="ghost" size="lg">
+            <Button as="a" href={links.cv} download variant="ghost" size="lg">
               <Download size={15} />
               {t.cta.cv[lang]}
             </Button>

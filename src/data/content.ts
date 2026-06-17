@@ -9,7 +9,7 @@ export const links = {
   github: 'https://github.com/Victormoroo',
   linkedin: 'https://www.linkedin.com/in/victormoroo/',
   email: 'victormoro.dev@gmail.com',
-  cv: '#',                                      // TODO: replace with /cv.pdf or external link
+  cv: '/victor-moro-cv.pdf',
   contactForm: 'https://formspree.io/f/mojrzovl',
 };
 
@@ -186,7 +186,7 @@ export const content = {
           highlight: {
             name: 'Omnos',
             description:
-              'Software interno para controle de patrimônio e estoque da empresa. ReactJS + Vite no web, React Native no mobile e backend em Java + Spring sobre PostgreSQL.',
+              'Software interno para controle de patrimônio e estoque da empresa. ReactJS + Vite no web, React Native no mobile e backend em Java + Spring com banco PostgreSQL.',
           },
           stack: ['React Native', 'ReactJS', 'TypeScript', 'Vite', 'Java', 'Spring', 'PostgreSQL', 'PowerShell', 'Mikrotik', 'RouterOS'],
         },
@@ -201,9 +201,9 @@ export const content = {
             'Squad ágil em Scrum: dailies, plannings e code reviews.',
           ],
           highlight: {
-            name: 'Backend de e-commerce',
+            name: 'JavaCom_API',
             description:
-              'API REST com autenticação (Spring Security + JWT), catálogo, carrinho e pedidos. Modelagem em PostgreSQL, Swagger, tratamento global de exceções e deploy em nuvem.',
+              'API REST de e-commerce com autenticação (Spring Security + JWT), catálogo, carrinho e pedidos. Modelagem em PostgreSQL, Swagger, tratamento global de exceções e deploy em nuvem.',
           },
           stack: ['Java', 'Spring Boot', 'Spring Data JPA', 'PostgreSQL', 'AWS', 'Git', 'Postman', 'Swagger'],
         },
@@ -224,7 +224,7 @@ export const content = {
           highlight: {
             name: 'Omnos',
             description:
-              'Internal software for company asset and inventory control. ReactJS + Vite on the web, React Native on mobile, Java + Spring on the backend over PostgreSQL.',
+              'Internal software for company asset and inventory control. ReactJS + Vite on the web, React Native on mobile, and a Java + Spring backend with a PostgreSQL database.',
           },
           stack: ['React Native', 'ReactJS', 'TypeScript', 'Vite', 'Java', 'Spring', 'PostgreSQL', 'PowerShell', 'Mikrotik', 'RouterOS'],
         },
@@ -239,9 +239,9 @@ export const content = {
             'Agile squad in Scrum: dailies, plannings and code reviews.',
           ],
           highlight: {
-            name: 'E-commerce backend',
+            name: 'JavaCom_API',
             description:
-              'REST API with authentication (Spring Security + JWT), catalog, cart and orders. PostgreSQL modeling, Swagger, global exception handling and cloud deploy.',
+              'E-commerce REST API with authentication (Spring Security + JWT), catalog, cart and orders. PostgreSQL modeling, Swagger, global exception handling and cloud deploy.',
           },
           stack: ['Java', 'Spring Boot', 'Spring Data JPA', 'PostgreSQL', 'AWS', 'Git', 'Postman', 'Swagger'],
         },
